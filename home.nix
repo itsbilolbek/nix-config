@@ -234,10 +234,13 @@
   
   stylix = {
     enable = true;
-    autoEnable = true;
+    autoEnable = false;
     
     targets = {
-      gtk.enable = true;
+      # gtk.enable = true;
+      helix.enable = true;
+      vim.enable = true;
+      alacritty.enable = true;
     };
     
     image = ./foggy-forest-wallpaper.jpg;
