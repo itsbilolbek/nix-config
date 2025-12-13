@@ -14,7 +14,21 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "25.05"; # Please read the comment before changing.
+  home.stateVersion = "25.11"; # Please read the comment before changing.
+
+  nix.package = pkgs.nix;
+
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    substituters = [
+      "https://cache.nixos.org/"
+      "https://nix-community.cachix.org"
+    ];
+    trusted-public-keys = [
+      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -36,7 +50,7 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
-    anki
+    # anki
     alacritty
     bash
     bash-language-server
@@ -62,7 +76,7 @@
     python313Packages.python-lsp-server
     starship
     sqlite
-    telegram-desktop
+    # telegram-desktop
     tmux
     # tree-sitter-grammars.tree-sitter-bash
     # tree-sitter-grammars.tree-sitter-c
