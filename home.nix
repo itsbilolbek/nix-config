@@ -189,9 +189,9 @@
     enable = true;
     defaultEditor = true;
 
-    settings = {
-      theme = "gruvbox_dark_hard";
-    };
+    # settings = {
+    #   theme = "gruvbox_dark_hard";
+    # };
 
     languages = {
       language-server.clangd.command = "clangd";
@@ -229,32 +229,41 @@
   programs.starship = {
     enable = true;
   };
-
-  # stylix.enable = true;
-  # stylix.image = ./foggy-forest-wallpaper.jpg;
-  # # stylix.colorScheme = inputs.stylix.colorSchemes.gruvbox-dark-hard;
-  # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml"; 
-  # stylix.fonts = {
-  #   serif = {
-  #     package = pkgs.dejavu_fonts;
-  #     name = "DejaVu Serif";
-  #   };
-
-  #   sansSerif = {
-  #     package = pkgs.dejavu_fonts;
-  #     name = "DejaVu Sans";
-  #   };
-
-  #   monospace = {
-  #     package = pkgs.dejavu_fonts;
-  #     name = "DejaVu Sans Mono";
-  #   };
-
-  #   emoji = {
-  #     package = pkgs.noto-fonts-color-emoji;
-  #     name = "Noto Color Emoji";
-  #   };
-  # };
+  
+  xdg.enable = true;
+  
+  stylix = {
+    enable = true;
+    autoEnable = true;
+    
+    targets = {
+      gtk.enable = true;
+    };
+    
+    image = ./foggy-forest-wallpaper.jpg;
+    # colorScheme = inputs.stylix.colorSchemes.gruvbox-dark-hard;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml"; 
+    fonts = {
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+      
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+  
+      monospace = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans Mono";
+      };
+      emoji = {
+        package = pkgs.noto-fonts-color-emoji;
+        name = "Noto Color Emoji";
+      };
+    };
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
