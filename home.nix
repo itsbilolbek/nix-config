@@ -208,6 +208,8 @@
       ];
     };
   };
+  
+  programs.vim.enable = true;
 
   programs.yazi = {
     enable = true;
@@ -238,9 +240,13 @@
     
     targets = {
       # gtk.enable = true;
-      helix.enable = true;
-      vim.enable = true;
       alacritty.enable = true;
+      bat.enable = true;
+      helix.enable = true;
+      starship.enable = true;
+      vim.enable = true;
+      zed.enable = true;
+      zellij.enable = true;
     };
     
     image = ./foggy-forest-wallpaper.jpg;
