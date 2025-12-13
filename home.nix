@@ -65,24 +65,21 @@
     fontconfig
     fzf
     gcc
+    gdb
     git
     gnupg
     helix
     hunspell
+    jq
     nerd-fonts.jetbrains-mono
     nerd-fonts.hack
     nil  # Nix language server
     python313
     python313Packages.python-lsp-server
+    ripgrep
     starship
     sqlite
     # telegram-desktop
-    tmux
-    # tree-sitter-grammars.tree-sitter-bash
-    # tree-sitter-grammars.tree-sitter-c
-    # tree-sitter-grammars.tree-sitter-cpp
-    # tree-sitter-grammars.tree-sitter-nix
-    # tree-sitter-grammars.tree-sitter-python
     tree-sitter
     unzip
     wget
@@ -131,6 +128,14 @@
     XDG_TERMINAL_EMULATOR = "alacritty";
   };
   
+  programs.alacritty = {
+    enable = true;
+    
+    settings = {
+      window.startup_mode = "Maximized";
+    };
+  };
+  
   programs.bash = {
     enable = true;
 
@@ -154,6 +159,7 @@
     options = {
       side-by-side = true;
       line-numbers = true;
+      dark = true;
     };
   };
 
@@ -169,6 +175,8 @@
 
     ignores = [
       "*.swp"
+      "*~"
+      "*result"
     ];
 
     settings = {
@@ -264,8 +272,8 @@
       };
   
       monospace = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans Mono";
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrainsMono Nerd Font";
       };
       emoji = {
         package = pkgs.noto-fonts-color-emoji;
