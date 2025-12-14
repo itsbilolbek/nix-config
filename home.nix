@@ -1,7 +1,20 @@
 { config, pkgs, inputs, ... }:
 
 {
-
+  
+  imports = [
+    ./alacritty.nix
+    ./firefox.nix
+    ./stylix.nix
+    ./cmd/bash.nix
+    ./cmd/delta.nix
+    ./cmd/fzf.nix
+    ./cmd/git.nix
+    ./cmd/starship.nix
+    ./editors/helix.nix
+    ./editors/zed.nix
+  ];
+  
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "kebol";
@@ -148,184 +161,7 @@
     XDG_TERMINAL_EMULATOR = "alacritty";
   };
 
-  programs.alacritty = {
-    enable = true;
-
-    settings = {
-      window.startup_mode = "Maximized";
-    };
-  };
-
-  programs.bash = {
-    enable = true;
-
-    shellAliases = {
-      ll = "ls -AhvolF --color=auto --group-directories-first";
-      grep = "grep --color=auto";
-    };
-
-    historyControl = [ "ignoreboth" ];
-    historyIgnore = [
-      "ls"
-      "cd"
-      "exit"
-    ];
-  };
-
-  programs.delta = {
-    enable = true;
-    enableGitIntegration = true;
-
-    options = {
-      side-by-side = true;
-      line-numbers = true;
-      dark = true;
-    };
-  };
-
-  programs.firefox = {
-    enable = true;
-
-    profiles.bilolbek = {
-      settings = {
-        "layout.css.always_underline_links" = true;
-        "sidebar.verticalTabs" = true;
-        "browser.tabs.inTitlebar" = 0;
-      };
-
-      extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
-        bitwarden
-        ublock-origin
-      ];
-    };
-  };
-
-  programs.fzf = {
-    enable = true;
-
-    enableBashIntegration = true;
-  };
-
-  programs.git = {
-    enable = true;
-    lfs.enable = true;
-
-    ignores = [
-      "*.swp"
-      "*~"
-      "*result"
-    ];
-
-    settings = {
-      user.name = "Normuminov Bilolbek";
-      user.email = "bilolbeknormuminov@gmail.com";
-      init.defaultBranch = "main";
-      pull.rebase = true;
-      rebase.autoStash = true;
-      # commit.gpgsign = true;
-
-      core = {
-        editor = "${config.home.sessionVariables.EDITOR}";
-      };
-    };
-  };
-
-  programs.helix = {
-    enable = true;
-    defaultEditor = true;
-
-    # settings = {
-    #   theme = "gruvbox_dark_hard";
-    # };
-
-    languages = {
-      language-server.clangd.command = "clangd";
-      language-server."bash-language-server".command = "bash-language-server";
-      language-server.nixd.command = "nixd";
-      language-server.pylsp.command = "${pkgs.python313Packages.python-lsp-server}/bin/pylsp";
-
-      language = [
-        { name = "bash"; }
-        { name = "c"; }
-        { name = "cpp"; }
-        {
-          name = "nix";
-          formatter.command = "alejandra";
-          formatter.args = ["--stdin"];
-        }
-        {
-          name = "python";
-          formatter.command = "black";
-          formatter.args = ["--stdin"];
-        }
-      ];
-    };
-  };
-
-  programs.vim.enable = true;
-
-  programs.yazi = {
-    enable = true;
-    shellWrapperName = "y";
-  };
-
-  programs.zed-editor = {
-    enable = true;
-
-    userSettings = {
-      disable_ai = true;
-      telemetry = {
-        metrics = false;
-        diagnostics = false;
-      };
-    };
-  };
-
-  programs.starship = {
-    enable = true;
-  };
-
   xdg.enable = true;
-
-  stylix = {
-    enable = true;
-    autoEnable = false;
-
-    targets = {
-      # gtk.enable = true;
-      alacritty.enable = true;
-      bat.enable = true;
-      helix.enable = true;
-      starship.enable = true;
-      vim.enable = true;
-      zed.enable = true;
-      zellij.enable = true;
-    };
-
-    image = ./foggy-forest-wallpaper.jpg;
-    # colorScheme = inputs.stylix.colorSchemes.gruvbox-dark-hard;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
-    fonts = {
-      serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
-      };
-
-      sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
-      };
-
-      monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMono Nerd Font";
-      };
-      emoji = {
-        package = pkgs.noto-fonts-color-emoji;
-        name = "Noto Color Emoji";
-      };
-    };
-  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
