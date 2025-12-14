@@ -1,7 +1,7 @@
 { config, pkgs, inputs, ... }:
 
 {
-  
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "kebol";
@@ -49,36 +49,36 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    
+
     # Language formatters
     alejandra
     black
     prettier
     shfmt
-    
+
     # LSP
     bash-language-server
     clang-tools
     nixd # Nix language server
     pyright
     typescript-language-server
-    
+
     # Linters
     shellcheck # required for bash-language-server
     eslint
-    
+
     # Debuggers
     lldb
-    
+
     # GUI
     alacritty
     telegram-desktop
     zed-editor
-    
+
     # Archiving
     zip
     unzip
-    
+
     bash
     bat
     btop
@@ -147,15 +147,15 @@
     TERMINAL = "alacritty";
     XDG_TERMINAL_EMULATOR = "alacritty";
   };
-  
+
   programs.alacritty = {
     enable = true;
-    
+
     settings = {
       window.startup_mode = "Maximized";
     };
   };
-  
+
   programs.bash = {
     enable = true;
 
@@ -244,7 +244,7 @@
       ];
     };
   };
-  
+
   programs.vim.enable = true;
 
   programs.yazi = {
@@ -254,7 +254,7 @@
 
   programs.zed-editor = {
     enable = true;
-    
+
     userSettings = {
       disable_ai = true;
       telemetry = {
@@ -267,13 +267,13 @@
   programs.starship = {
     enable = true;
   };
-  
+
   xdg.enable = true;
-  
+
   stylix = {
     enable = true;
     autoEnable = false;
-    
+
     targets = {
       # gtk.enable = true;
       alacritty.enable = true;
@@ -284,21 +284,21 @@
       zed.enable = true;
       zellij.enable = true;
     };
-    
+
     image = ./foggy-forest-wallpaper.jpg;
     # colorScheme = inputs.stylix.colorSchemes.gruvbox-dark-hard;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml"; 
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
     fonts = {
       serif = {
         package = pkgs.dejavu_fonts;
         name = "DejaVu Serif";
       };
-      
+
       sansSerif = {
         package = pkgs.dejavu_fonts;
         name = "DejaVu Sans";
       };
-  
+
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
         name = "JetBrainsMono Nerd Font";
