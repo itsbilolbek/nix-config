@@ -49,14 +49,39 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-
-    # anki
-    alacritty
-    bash
+    
+    # Language formatters
+    alejandra
+    black
+    prettier
+    shfmt
+    
+    # LSP
     bash-language-server
+    clang-tools
+    nixd # Nix language server
+    pyright
+    typescript-language-server
+    
+    # Linters
+    shellcheck # required for bash-language-server
+    eslint
+    
+    # Debuggers
+    lldb
+    
+    # GUI
+    alacritty
+    telegram-desktop
+    zed-editor
+    
+    # Archiving
+    zip
+    unzip
+    
+    bash
     bat
     btop
-    clang-tools
     coreutils
     curl
     delta
@@ -73,20 +98,13 @@
     jq
     nerd-fonts.jetbrains-mono
     nerd-fonts.hack
-    nil  # Nix language server
-    python313
-    python313Packages.python-lsp-server
     ripgrep
     starship
     sqlite
-    # telegram-desktop
+    tealdeer
     tree-sitter
-    unzip
     wget
-    yazi
-    zed-editor
     zellij
-    zip
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -120,6 +138,8 @@
   #
   #  /etc/profiles/per-user/kebol/etc/profile.d/hm-session-vars.sh
   #
+
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"]; # Use system nixpkgs for nixd lsp
 
   home.sessionVariables = {
     EDITOR = "hx";
@@ -204,15 +224,23 @@
     languages = {
       language-server.clangd.command = "clangd";
       language-server."bash-language-server".command = "bash-language-server";
-      language-server.nil.command = "nil";
+      language-server.nixd.command = "nixd";
       language-server.pylsp.command = "${pkgs.python313Packages.python-lsp-server}/bin/pylsp";
 
       language = [
         { name = "bash"; }
         { name = "c"; }
         { name = "cpp"; }
-        { name = "nix"; }
-        { name = "python"; }
+        {
+          name = "nix";
+          formatter.command = "alejandra";
+          formatter.args = ["--stdin"];
+        }
+        {
+          name = "python";
+          formatter.command = "black";
+          formatter.args = ["--stdin"];
+        }
       ];
     };
   };
