@@ -6,10 +6,11 @@
     ./alacritty.nix
     ./firefox.nix
     ./stylix.nix
-    ./cmd/bash.nix
+    ./cmd/bat.nix
     ./cmd/delta.nix
     ./cmd/fzf.nix
     ./cmd/git.nix
+    ./cmd/zsh.nix
     ./cmd/starship.nix
     ./editors/helix.nix
     ./editors/zed.nix
@@ -99,6 +100,7 @@
     curl
     delta
     dust
+    eza
     fastfetch
     fontconfig
     fzf
@@ -118,6 +120,7 @@
     tree-sitter
     wget
     zellij
+    zsh
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

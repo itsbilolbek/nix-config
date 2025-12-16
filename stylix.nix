@@ -7,12 +7,10 @@
     targets = {
       # gtk.enable = true;
       alacritty.enable = true;
-      bat.enable = true;
       helix.enable = true;
       starship.enable = true;
       vim.enable = true;
       zed.enable = true;
-      zellij.enable = true;
     };
 
     image = ./foggy-forest-wallpaper.jpg;
