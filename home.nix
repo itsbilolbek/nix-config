@@ -1,7 +1,7 @@
 { config, pkgs, inputs, ... }:
 
 {
-  
+
   imports = [
     ./alacritty.nix
     ./firefox.nix
@@ -10,12 +10,13 @@
     ./cmd/delta.nix
     ./cmd/fzf.nix
     ./cmd/git.nix
+    ./cmd/ssh.nix
     ./cmd/zsh.nix
     ./cmd/starship.nix
     ./editors/helix.nix
     ./editors/zed.nix
   ];
-  
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "kebol";
