@@ -2,6 +2,14 @@
   programs.zed-editor = {
     enable = true;
 
+    extensions = [
+      "env"
+      "html"
+      "ini"
+      "nix"
+      "toml"
+    ];
+
     userSettings = {
       auto_update = false;
       cursor_blink = false;
@@ -24,6 +32,21 @@
       base_keymap = "VSCode";
       show_whitespaces = "boundary";
       minimap.show = "auto";
+
+      languages = {
+        Nix = {
+          language_servers = [
+            "nixd"
+            "!nil"
+          ];
+          formatter = {
+            external = {
+              command = "alejandra";
+              arguments = ["--quiet" "-"];
+            };
+          };
+        };
+      };
     };
   };
 }
