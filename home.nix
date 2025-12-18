@@ -11,6 +11,7 @@
     ./cmd/fzf.nix
     ./cmd/git.nix
     ./cmd/ssh.nix
+    ./cmd/zellij.nix
     ./cmd/zsh.nix
     ./cmd/starship.nix
     ./editors/helix.nix
@@ -120,8 +121,10 @@
     tealdeer
     tree-sitter
     wget
+    yazi
     zellij
     zsh
+    zoxide
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -166,6 +169,8 @@
   };
 
   xdg.enable = true;
+
+  fonts.fontconfig.enable = true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

@@ -10,7 +10,14 @@
       helix.enable = true;
       starship.enable = true;
       vim.enable = true;
+      yazi.enable = true;
       zed.enable = true;
+    };
+
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 24;
     };
 
     image = ./foggy-forest-wallpaper.jpg;

@@ -16,6 +16,12 @@
     shellAliases = {
       ll = "eza -Alh --no-quotes --git --icons=auto --group-directories-first";
       grep = "grep --color=auto";
+      zj = "zellij";
     };
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
   };
 }

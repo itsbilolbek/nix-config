@@ -4,6 +4,7 @@
 
     userSettings = {
       auto_update = false;
+      cursor_blink = false;
       disable_ai = true;
       telemetry.metrics = false;
       telemetry.diagnostics = false;
