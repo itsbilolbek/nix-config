@@ -46,6 +46,8 @@
     ];
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -101,10 +103,12 @@
     coreutils
     curl
     delta
+    direnv
     dust
     eza
     fastfetch
     fontconfig
+    fd
     fzf
     gcc
     gdb
@@ -113,9 +117,11 @@
     helix
     hunspell
     jq
+    moreutils # sponge util
     nerd-fonts.jetbrains-mono
     nerd-fonts.hack
     ripgrep
+    sd
     starship
     sqlite
     tealdeer
@@ -123,6 +129,7 @@
     wget
     yazi
     zellij
+    zoom-us
     zsh
     zoxide
   ];
