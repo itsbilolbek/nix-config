@@ -18,6 +18,8 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    uzbek-xcompose.url = "github:itsbilolbek/uzbek-xcompose";
   };
 
   outputs =
@@ -35,6 +37,7 @@
         modules = [
           stylix.homeModules.stylix
           ./home.nix
+          inputs.uzbek-xcompose.homeManagerModules.default
         ];
 
         # Optionally use extraSpecialArgs
