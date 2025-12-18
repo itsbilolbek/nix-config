@@ -1,7 +1,9 @@
-{ config, pkgs, inputs, ... }:
-
 {
-
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./alacritty.nix
     ./firefox.nix
@@ -35,7 +37,7 @@
   nix.package = pkgs.nix;
 
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = ["nix-command" "flakes"];
     substituters = [
       "https://cache.nixos.org/"
       "https://nix-community.cachix.org"

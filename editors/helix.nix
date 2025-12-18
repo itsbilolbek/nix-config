@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.helix = {
     enable = true;
     defaultEditor = true;
@@ -15,9 +14,9 @@
       language-server.pylsp.command = "${pkgs.python313Packages.python-lsp-server}/bin/pylsp";
 
       language = [
-        { name = "bash"; }
-        { name = "c"; }
-        { name = "cpp"; }
+        {name = "bash";}
+        {name = "c";}
+        {name = "cpp";}
         {
           name = "nix";
           formatter.command = "alejandra";

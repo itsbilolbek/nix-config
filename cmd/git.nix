@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   programs.git = {
     enable = true;
     lfs.enable = true;
@@ -25,7 +24,7 @@
     };
 
     signing = {
-      key = "${config.home.homeDirectory}/.ssh/id_ed25519";  # # Leave blank when using the ssh format above
+      key = "${config.home.homeDirectory}/.ssh/id_ed25519"; # # Leave blank when using the ssh format above
       signByDefault = true;
       format = "ssh";
     };
