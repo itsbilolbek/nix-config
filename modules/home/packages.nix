@@ -25,6 +25,8 @@
 
     # GUI
     alacritty
+    firefox
+    libreoffice-fresh
     telegram-desktop
     zed-editor
     zoom-us
