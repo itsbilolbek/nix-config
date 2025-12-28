@@ -28,24 +28,30 @@
     stylix,
     ...
   } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+#     system = "x86_64-linux";
+#     pkgs = nixpkgs.legacyPackages.${system};
   in {
-    homeConfigurations."kebol" = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
+    nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit inputs;};
 
-      # Specify your home configuration modules here, for example,
-      # the path to your home.nix.
       modules = [
-        ./modules/home
-        ./modules/nix
-        stylix.homeModules.stylix
-        inputs.uzbek-xcompose.homeManagerModules.default
-      ];
+        ./hosts/hp/configuration.nix
+        stylix.nixosModules.stylix
+#         inputs.uzbek-xcompose.homeManagerModules.default
 
-      # Optionally use extraSpecialArgs
-      # to pass through arguments to home.nix
-      extraSpecialArgs = {inherit inputs;};
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "backup";
+          home-manager.users.mocha = {
+            imports = [
+              ./modules/home
+              inputs.stylix.homeModules.stylix
+            ];
+          };
+          home-manager.extraSpecialArgs = { inherit inputs; };
+        }
+      ];
     };
   };
 }

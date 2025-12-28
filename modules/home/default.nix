@@ -20,8 +20,8 @@
   programs.home-manager.enable = true;
 
   home = {
-    username = "kebol";
-    homeDirectory = "/home/kebol";
+    username = "mocha";
+    homeDirectory = "/home/mocha";
     stateVersion = "25.11";
     sessionVariables = {
       EDITOR = "hx";
@@ -34,10 +34,4 @@
   xdg.enable = true;
 
   fonts.fontconfig.enable = true;
-
-  # Enable graphics on non-NixOS distros
-  targets.genericLinux = {
-    enable = true;
-    gpu.enable = true;
-  };
 }
