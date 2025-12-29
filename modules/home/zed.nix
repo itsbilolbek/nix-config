@@ -16,11 +16,7 @@
       disable_ai = true;
       telemetry.metrics = false;
       telemetry.diagnostics = false;
-      collaboration_panel.dock = "right";
       collaboration_panel.button = false;
-      git_panel.dock = "right";
-      outline_panel.dock = "right";
-      project_panel.dock = "right";
       buffer_line_height = "standard";
       autosave = "on_focus_change";
       formate_on_save = "on";
