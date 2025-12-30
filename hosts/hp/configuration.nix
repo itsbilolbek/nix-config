@@ -30,7 +30,21 @@
   time.timeZone = "Asia/Tashkent";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    inputMethod = {
+      enable = true;
+      type = "fcitx5";
+      fcitx5 = {
+        waylandFrontend = true;
+        addons = with pkgs; [
+          fcitx5-gtk
+          kdePackages.fcitx5-qt
+          qt6Packages.fcitx5-configtool
+        ];
+      };
+    };
+  };
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
