@@ -6,7 +6,6 @@
       settings = {
         "layout.css.always_underline_links" = true;
         "sidebar.verticalTabs" = true;
-        "browser.tabs.inTitlebar" = 0;
       };
 
       extensions.packages = with inputs.firefox-addons.packages."x86_64-linux"; [
