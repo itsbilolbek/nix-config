@@ -24,8 +24,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-
-    uzbek-xcompose.url = "github:itsbilolbek/uzbek-xcompose";
   };
 
   outputs = {
@@ -44,14 +42,12 @@
       modules = [
         ./hosts/hp/configuration.nix
         stylix.nixosModules.stylix
-        #         inputs.uzbek-xcompose.homeManagerModules.default
 
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "backup";
-          # home-manager.sharedModules = [plasma-manager.homeModules.plasma-manager];
           home-manager.users.mocha = {
             imports = [
               ./modules/home
