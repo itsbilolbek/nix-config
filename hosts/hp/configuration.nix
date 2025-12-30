@@ -127,4 +127,5 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   programs.zsh.enable = true;
+  programs.ssh.startAgent = true;
 }
