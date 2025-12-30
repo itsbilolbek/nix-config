@@ -9,6 +9,7 @@
     ./git.nix
     ./helix.nix
     ./packages.nix
+    ./plasma.nix
     ./ssh.nix
     ./starship.nix
     ./stylix.nix
@@ -34,4 +35,10 @@
   xdg.enable = true;
 
   fonts.fontconfig.enable = true;
+
+  qt = {
+    enable = true;
+    platformTheme.name = "kde";
+    style.name = "breeze";
+  };
 }
