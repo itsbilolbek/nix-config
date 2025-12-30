@@ -32,6 +32,10 @@
   # Select internationalisation properties.
   i18n = {
     defaultLocale = "en_US.UTF-8";
+    supportedLocales = [
+      "en_US.UTF-8/UTF-8"
+      "ko_KR.UTF-8/UTF-8"
+    ];
     inputMethod = {
       enable = true;
       type = "fcitx5";
@@ -41,6 +45,7 @@
           fcitx5-gtk
           kdePackages.fcitx5-qt
           qt6Packages.fcitx5-configtool
+          fcitx5-hangul
         ];
       };
     };
