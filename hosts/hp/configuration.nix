@@ -152,4 +152,19 @@
 
   programs.zsh.enable = true;
   programs.ssh.startAgent = true;
+
+  # Gaming settings
+  hardware.graphics = {
+    enable = true;
+    # remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  };
+
+  services.xserver.videoDrivers = ["amdgpu"];
+
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
+
+  programs.gamemode.enable = true;
 }
