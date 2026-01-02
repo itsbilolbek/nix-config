@@ -30,6 +30,8 @@
     telegram-desktop
     zed-editor
     zoom-us
+    qbittorrent
+    celluloid
 
     # Archiving
     zip
