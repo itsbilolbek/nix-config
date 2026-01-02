@@ -40,11 +40,9 @@
       enable = true;
       type = "fcitx5";
       fcitx5 = {
-        waylandFrontend = true;
+        waylandFrontend = false;
         addons = with pkgs; [
           fcitx5-gtk
-          kdePackages.fcitx5-qt
-          qt6Packages.fcitx5-configtool
           fcitx5-hangul
         ];
       };
@@ -53,25 +51,21 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm = {
+  services.xserver = {
     enable = true;
-    autoNumlock = false;
+    displayManager.lightdm.enable = true;
+    desktopManager.cinnamon.enable = true;
   };
-  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "uz,us";
-    variant = "latin";
-    options = "ctrl:nocaps,lv3:ralt_alt";
-    extraLayouts.uz = {
-      description = "Uzbek typographic layout";
-      languages = ["eng" "uzb"];
-      symbolsFile = ./uz; # Path to your local file
-    };
+    layout = "us";
+    options = "ctrl:nocaps";
+    # extraLayouts.uz = {
+    #   description = "Uzbek typographic layout";
+    #   languages = ["eng" "uzb"];
+    #   symbolsFile = ./uz; # Path to your local file
+    # };
   };
 
   # Enable CUPS to print documents.
@@ -152,7 +146,7 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   programs.zsh.enable = true;
-  programs.ssh.startAgent = true;
+  # programs.ssh.startAgent = true;
 
   # Gaming settings
   hardware.graphics = {
