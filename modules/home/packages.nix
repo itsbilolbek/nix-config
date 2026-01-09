@@ -24,7 +24,7 @@
     tree-sitter
 
     # GUI
-    alacritty
+    # alacritty
     firefox
     libreoffice-fresh
     telegram-desktop

@@ -90,6 +90,12 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput = {
     enable = true;
+    mouse = {
+      # This disables the "smart" acceleration that often causes jitters
+      accelProfile = "flat";
+      # Optional: adjust sensitivity if it feels too slow after flattening
+      accelSpeed = "0";
+    };
     touchpad.naturalScrolling = true;
   };
 
