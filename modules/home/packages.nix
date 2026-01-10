@@ -24,14 +24,15 @@
     tree-sitter
 
     # GUI
-    # alacritty
+    alacritty
     firefox
     libreoffice-fresh
-    telegram-desktop
+    # telegram-desktop
     zed-editor
     zoom-us
     qbittorrent
     celluloid
+    xreader
 
     # Archiving
     zip
@@ -48,8 +49,10 @@
     eza
     fd
     fzf
+    gh
     jq
     moreutils # sponge util
+    nh
     ripgrep
     sd
     tealdeer
