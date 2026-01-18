@@ -59,13 +59,13 @@
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
+    layout = "uzx,us";
     options = "ctrl:nocaps";
-    # extraLayouts.uz = {
-    #   description = "Uzbek typographic layout";
-    #   languages = ["eng" "uzb"];
-    #   symbolsFile = ./uz; # Path to your local file
-    # };
+    extraLayouts.uzx = {
+      description = "Uzbek (US)";
+      languages = ["uzb"];
+      symbolsFile = ./uz;
+    };
   };
 
   # Enable CUPS to print documents.
