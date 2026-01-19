@@ -164,7 +164,10 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings = {
+    experimental-features = ["nix-command" "flakes"];
+    auto-optimise-store = true;
+  };
 
   programs.zsh.enable = true;
   # programs.ssh.startAgent = true;
@@ -183,4 +186,11 @@
   };
 
   programs.gamemode.enable = true;
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+    persistent = true;
+  };
 }
