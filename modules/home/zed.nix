@@ -13,12 +13,14 @@
     userSettings = {
       auto_update = false;
       cursor_blink = false;
-      disable_ai = true;
+      disable_ai = false;
       telemetry.metrics = false;
       telemetry.diagnostics = false;
       collaboration_panel.button = false;
       buffer_line_height = "standard";
       autosave = "on_focus_change";
+      theme = "Gruvbox Dark";
+      icon_theme = "Colored Zed Icons Theme Dark";
       formate_on_save = "on";
       tabs = {
         file_icons = true;
@@ -27,7 +29,7 @@
       };
       base_keymap = "VSCode";
       show_whitespaces = "boundary";
-      minimap.show = "auto";
+      minimap.show = "never";
 
       languages = {
         Nix = {

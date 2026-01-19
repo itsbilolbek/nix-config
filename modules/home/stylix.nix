@@ -12,7 +12,6 @@
       starship.enable = true;
       vim.enable = true;
       yazi.enable = true;
-      zed.enable = true;
     };
 
     cursor = {
