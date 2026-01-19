@@ -30,8 +30,10 @@
     # telegram-desktop
     zed-editor
     zoom-us
+    poedit
     qbittorrent
     celluloid
+    virtualbox
     xreader
 
     # Archiving
@@ -53,6 +55,7 @@
     jq
     moreutils # sponge util
     nh
+    nix-direnv
     ripgrep
     sd
     tealdeer
