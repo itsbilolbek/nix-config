@@ -17,7 +17,7 @@
   system.stateVersion = "25.11";
 
   networking = {
-    hostName = "nixos";
+    hostName = "xenon";
     networkmanager.enable = true;
   };
 

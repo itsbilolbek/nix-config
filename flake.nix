@@ -26,7 +26,7 @@
     stylix,
     ...
   } @ inputs: {
-    nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations."xenon" = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
 
       modules = [
