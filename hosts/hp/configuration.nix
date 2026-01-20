@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
+    ./gaming
     ../../modules/nix
   ];
 
@@ -110,22 +111,5 @@
     shell = pkgs.zsh;
   };
 
-  nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-    mangohud
-  ];
-
-  services.xserver.videoDrivers = ["amdgpu"];
-
-  hardware.graphics.enable = true;
-
-  programs = {
-    zsh.enable = true;
-    gamemode.enable = true;
-    steam = {
-      enable = true;
-      gamescopeSession.enable = true;
-    };
-  };
+  programs.zsh.enable = true;
 }
