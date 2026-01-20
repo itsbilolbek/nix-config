@@ -4,7 +4,6 @@
     autoEnable = false;
 
     targets.kde.enable = false;
-    targets.firefox.profileNames = ["bilolbek"];
 
     targets = {
       alacritty.enable = true;
