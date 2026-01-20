@@ -30,7 +30,7 @@
       specialArgs = {inherit inputs;};
 
       modules = [
-        ./hosts/hp/configuration.nix
+        ./hosts/xenon/configuration.nix
         stylix.nixosModules.stylix
 
         home-manager.nixosModules.home-manager
