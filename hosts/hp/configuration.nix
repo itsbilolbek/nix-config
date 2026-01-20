@@ -112,8 +112,24 @@
   users.users.mocha = {
     isNormalUser = true;
     description = "Bilolbek";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "podman"];
     shell = pkgs.zsh;
+  };
+
+  environment.systemPackages = [pkgs.podman-compose];
+
+  virtualisation = {
+    containers = {
+      registries.search = ["docker.io" "quay.io" "ghcr.io"];
+      storage.settings = {
+        storage.driver = "overlay";
+      };
+    };
+    podman = {
+      enable = true;
+      dockerSocket.enable = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
   };
 
   programs.zsh.enable = true;
