@@ -21,6 +21,8 @@
       autosave = "on_focus_change";
       theme = "Gruvbox Dark";
       icon_theme = "Colored Zed Icons Theme Dark";
+      buffer_font_family = "JetBrainsMono Nerd Font Mono";
+      ui_font_family = "JetBrainsMono Nerd Font";
       formate_on_save = "on";
       tabs = {
         file_icons = true;

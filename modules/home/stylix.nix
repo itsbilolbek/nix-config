@@ -42,7 +42,7 @@
 
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "Dejavu Sans Mono";
+        name = "JetBrainsMono Nerd Font Mono";
       };
       emoji = {
         package = pkgs.noto-fonts-color-emoji;
