@@ -1,1 +1,9 @@
+# Nix build results
 result
+result-*
+
+# direnv
+.direnv
+
+# Misc
+*.swp
