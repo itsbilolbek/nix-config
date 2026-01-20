@@ -29,6 +29,7 @@
       VISUAL = "hx";
       TERMINAL = "alacritty";
       XDG_TERMINAL_EMULATOR = "alacritty";
+      NH_FLAKE = "/home/mocha/nix-config";
     };
   };
 
