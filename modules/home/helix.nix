@@ -8,10 +8,12 @@
     # };
 
     languages = {
-      language-server.clangd.command = "clangd";
-      language-server."bash-language-server".command = "bash-language-server";
-      language-server.nixd.command = "nixd";
-      language-server.pylsp.command = "${pkgs.python313Packages.python-lsp-server}/bin/pylsp";
+      language-server = {
+        clangd.command = "clangd";
+        "bash-language-server".command = "bash-language-server";
+        nixd.command = "nixd";
+        pylsp.command = "${pkgs.python313Packages.python-lsp-server}/bin/pylsp";
+      };
 
       language = [
         {name = "bash";}

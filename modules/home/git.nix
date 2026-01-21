@@ -10,13 +10,15 @@
     ];
 
     settings = {
-      user.name = "Normuminov Bilolbek";
-      user.email = "bilolbeknormuminov@gmail.com";
+      user = {
+        name = "Normuminov Bilolbek";
+        email = "bilolbeknormuminov@gmail.com";
+        signingkey = "~/.ssh/id_ed25519.pub";
+      };
       init.defaultBranch = "main";
       pull.rebase = true;
       rebase.autoStash = true;
       gpg.format = "ssh";
-      user.signingkey = "~/.ssh/id_ed25519.pub";
 
       core = {
         editor = "${config.home.sessionVariables.EDITOR}";

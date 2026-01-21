@@ -23,17 +23,6 @@
 
   time.timeZone = "Asia/Tashkent";
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "uzx,us";
-    options = "ctrl:nocaps";
-    extraLayouts.uzx = {
-      description = "Uzbek (US)";
-      languages = ["uzb"];
-      symbolsFile = ./uz;
-    };
-  };
-
   i18n = {
     defaultLocale = "en_US.UTF-8";
     supportedLocales = [
@@ -71,15 +60,26 @@
     ];
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver = {
-    enable = true;
-    displayManager.lightdm.enable = true;
-    desktopManager.cinnamon.enable = true;
-  };
-
   services = {
+    # Enable the X11 windowing system.
+    # You can disable this if you're only using the Wayland session.
+    xserver = {
+      enable = true;
+      displayManager.lightdm.enable = true;
+      desktopManager.cinnamon.enable = true;
+
+      # Configure keymap in X11
+      xkb = {
+        layout = "uzx,us";
+        options = "ctrl:nocaps";
+        extraLayouts.uzx = {
+          description = "Uzbek (US)";
+          languages = ["uzb"];
+          symbolsFile = ./uz;
+        };
+      };
+    };
+
     printing.enable = true;
     pulseaudio.enable = false;
     openssh.enable = true;

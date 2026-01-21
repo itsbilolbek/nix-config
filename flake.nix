@@ -38,16 +38,18 @@
 
         home-manager.nixosModules.home-manager
         {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "backup";
-          home-manager.users.mocha = {
-            imports = [
-              ./modules/home
-              inputs.stylix.homeModules.stylix
-            ];
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            backupFileExtension = "backup";
+            extraSpecialArgs = {inherit inputs;};
+            users.mocha = {
+              imports = [
+                ./modules/home
+                inputs.stylix.homeModules.stylix
+              ];
+            };
           };
-          home-manager.extraSpecialArgs = {inherit inputs;};
         }
       ];
     };
