@@ -2,12 +2,13 @@
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   nixpkgs.config.allowUnfree = true;
 
   nix = {
     package = pkgs.nix;
-    nixPath = ["nixpkgs=${inputs.nixpkgs}"]; # Use system nixpkgs for nixd lsp
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ]; # Use system nixpkgs for nixd lsp
 
     gc = {
       automatic = true;
@@ -18,7 +19,10 @@
 
     settings = {
       auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       substituters = [
         "https://cache.nixos.org/"
         "https://nix-community.cachix.org"

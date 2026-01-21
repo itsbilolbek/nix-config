@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./hardware-configuration.nix
     ./gaming
@@ -17,7 +18,11 @@
     networkmanager.enable = true;
     firewall = {
       enable = true;
-      allowedTCPPorts = [22 80 443];
+      allowedTCPPorts = [
+        22
+        80
+        443
+      ];
     };
   };
 
@@ -46,9 +51,18 @@
   fonts = {
     fontconfig = {
       defaultFonts = {
-        serif = ["Noto Serif CJK KR" "NanumMyeongjo"];
-        sansSerif = ["Noto Sans CJK KR" "NanumGothic"];
-        monospace = ["Noto Sans Mono CJK KR" "NanumGothicCoding"];
+        serif = [
+          "Noto Serif CJK KR"
+          "NanumMyeongjo"
+        ];
+        sansSerif = [
+          "Noto Sans CJK KR"
+          "NanumGothic"
+        ];
+        monospace = [
+          "Noto Sans Mono CJK KR"
+          "NanumGothicCoding"
+        ];
       };
     };
 
@@ -74,7 +88,7 @@
         options = "ctrl:nocaps";
         extraLayouts.uzx = {
           description = "Uzbek (US)";
-          languages = ["uzb"];
+          languages = [ "uzb" ];
           symbolsFile = ./uz;
         };
       };
@@ -108,15 +122,23 @@
   users.users.mocha = {
     isNormalUser = true;
     description = "Bilolbek";
-    extraGroups = ["networkmanager" "wheel" "podman"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "podman"
+    ];
     shell = pkgs.zsh;
   };
 
-  environment.systemPackages = [pkgs.podman-compose];
+  environment.systemPackages = [ pkgs.podman-compose ];
 
   virtualisation = {
     containers = {
-      registries.search = ["docker.io" "quay.io" "ghcr.io"];
+      registries.search = [
+        "docker.io"
+        "quay.io"
+        "ghcr.io"
+      ];
       storage.settings = {
         storage.driver = "overlay";
       };

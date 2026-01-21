@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   imports = [
     ./alacritty.nix
     ./bat.nix
@@ -38,7 +39,11 @@
   fonts.fontconfig.enable = true;
 
   i18n.inputMethod.fcitx5.settings.inputMethod = {
-    "0" = {name = "keyboard-us";};
-    "1" = {name = "hangul";};
+    "0" = {
+      name = "keyboard-us";
+    };
+    "1" = {
+      name = "hangul";
+    };
   };
 }

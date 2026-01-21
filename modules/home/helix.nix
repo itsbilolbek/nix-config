@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.helix = {
     enable = true;
     defaultEditor = true;
@@ -16,18 +17,18 @@
       };
 
       language = [
-        {name = "bash";}
-        {name = "c";}
-        {name = "cpp";}
+        { name = "bash"; }
+        { name = "c"; }
+        { name = "cpp"; }
         {
           name = "nix";
           formatter.command = "alejandra";
-          formatter.args = ["--stdin"];
+          formatter.args = [ "--stdin" ];
         }
         {
           name = "python";
           formatter.command = "black";
-          formatter.args = ["--stdin"];
+          formatter.args = [ "--stdin" ];
         }
       ];
     };
