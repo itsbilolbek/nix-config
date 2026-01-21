@@ -16,6 +16,7 @@
         email = "bilolbeknormuminov@gmail.com";
         signingkey = "~/.ssh/id_ed25519.pub";
       };
+
       init.defaultBranch = "main";
       pull.rebase = true;
       rebase.autoStash = true;
@@ -23,6 +24,17 @@
 
       core = {
         editor = "${config.home.sessionVariables.EDITOR}";
+        autocrlf = "input";
+      };
+
+      aliases = {
+        aa = "add -A";
+        br = "branch";
+        ci = "commit";
+        co = "checkout";
+        st = "status -s";
+        dog = "log --oneline --graph --decorate --all";
+        unstage = "reset HEAD --";
       };
     };
 
