@@ -1,28 +1,9 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    # Language formatters
-    alejandra
-    black
-    prettier
-    shfmt
-
-    # LSP
-    bash-language-server
-    clang-tools
-    eslint
-    nixd # Nix language server
-    pyright
-    shellcheck # required for bash-language-server
-    typescript-language-server
-
     # Development
-    lldb
-    gcc
-    gdb
     git
     sqlite
-    tree-sitter
 
     # GUI
     alacritty
