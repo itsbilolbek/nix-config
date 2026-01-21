@@ -25,7 +25,10 @@
     home-manager,
     stylix,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
     nixosConfigurations."xenon" = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
 
@@ -47,6 +50,23 @@
           home-manager.extraSpecialArgs = {inherit inputs;};
         }
       ];
+    };
+
+    devShells.${system} = {
+      default = pkgs.mkShell {
+        buildInputs = with pkgs; [
+          alejandra
+          nix-tree
+          nixd
+          git
+          statix
+          deadnix
+        ];
+
+        shellHook = ''
+          echo "🔨 Welcome to NixOS Config Dev Environment"
+        '';
+      };
     };
   };
 }
