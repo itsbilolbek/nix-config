@@ -27,7 +27,7 @@
         autocrlf = "input";
       };
 
-      aliases = {
+      alias = {
         aa = "add -A";
         br = "branch";
         ci = "commit";
