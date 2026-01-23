@@ -17,10 +17,6 @@
       auto_update = false;
       cursor_blink = false;
       disable_ai = false;
-      telemetry = {
-        metrics = false;
-        diagnostics = false;
-      };
       collaboration_panel.button = false;
       buffer_line_height = "standard";
       autosave = "on_focus_change";
