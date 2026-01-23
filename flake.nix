@@ -18,13 +18,17 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    git-hooks.url = "github:cachix/git-hooks.nix";
   };
 
   outputs =
     {
+      self,
       nixpkgs,
       home-manager,
       stylix,
+      git-hooks,
       ...
     }@inputs:
     let
@@ -32,7 +36,6 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      formatter.${system} = pkgs.nixfmt-tree;
       nixosConfigurations."xenon" = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
 
@@ -58,23 +61,40 @@
         ];
       };
 
-      devShells.${system} = {
-        default = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            git
-
-            deadnix
-            nixfmt
-            nixfmt-tree
-            nixd
-            nix-tree
-            statix
-          ];
-
-          shellHook = ''
-            echo "🔨 Welcome to NixOS Config Dev Environment"
+      formatter.${system} =
+        let
+          inherit (self.checks.${system}.pre-commit-check.config) package configFile;
+          script = ''
+            ${pkgs.lib.getExe package} run --all-files --config ${configFile}
           '';
+        in
+        pkgs.writeShellScriptBin "pre-commit-run" script;
+
+      checks.${system}.pre-commit-check = git-hooks.lib.${system}.run {
+        src = ./.;
+        hooks = {
+          nixfmt.enable = true;
+          statix.enable = true;
+          deadnix.enable = true;
+
+          end-of-file-fixer.enable = true;
+          trim-trailing-whitespace.enable = true;
+
+          check-added-large-files.enable = true;
+          check-yaml.enable = true;
         };
+      };
+
+      devShells.${system} = {
+        default =
+          let
+            pkgs = nixpkgs.legacyPackages.${system};
+            inherit (self.checks.${system}.pre-commit-check) shellHook enabledPackages;
+          in
+          pkgs.mkShell {
+            inherit shellHook;
+            buildInputs = enabledPackages ++ [ pkgs.nixd ];
+          };
       };
     };
 }
