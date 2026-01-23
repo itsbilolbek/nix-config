@@ -1,4 +1,7 @@
+{ pkgs, ... }:
 {
+  home.packages = [ pkgs.zellij ];
+
   programs.zellij = {
     enable = true;
     # enableZshIntegration = true;  # Autostarts Zellij in alacritty and Zed

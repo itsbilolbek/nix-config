@@ -1,5 +1,10 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    git
+    delta
+  ];
+
   programs.git = {
     enable = true;
     lfs.enable = true;
@@ -42,6 +47,20 @@
       key = "${config.home.homeDirectory}/.ssh/id_ed25519"; # # Leave blank when using the ssh format above
       signByDefault = true;
       format = "ssh";
+    };
+  };
+
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+
+    options = {
+      side-by-side = true;
+      line-numbers = true;
+      dark = true;
+      syntax-theme = "gruvbox-dark";
+      conflictStyle = "zdiff3";
+      navigate = true;
     };
   };
 }

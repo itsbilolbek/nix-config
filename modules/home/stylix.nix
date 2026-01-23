@@ -1,17 +1,18 @@
 { pkgs, ... }:
 {
+  home.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.hack
+  ];
+
   stylix = {
     enable = true;
     autoEnable = false;
-
-    targets.kde.enable = false;
 
     targets = {
       alacritty.enable = true;
       helix.enable = true;
       starship.enable = true;
-      vim.enable = true;
-      yazi.enable = true;
     };
 
     cursor = {
