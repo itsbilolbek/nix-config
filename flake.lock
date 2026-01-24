@@ -242,6 +242,21 @@
         "type": "github"
       }
     },
+    "my-templates": {
+      "locked": {
+        "lastModified": 1769254899,
+        "narHash": "sha256-occCACq4AqpVqibQ3vT1/aRh8q0EILSikOP89hwFq1g=",
+        "owner": "itsbilolbek",
+        "repo": "flake-templates",
+        "rev": "c8050262082e00c66de3bcdee30bfaa1abec3467",
+        "type": "github"
+      },
+      "original": {
+        "owner": "itsbilolbek",
+        "repo": "flake-templates",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1768736311,
@@ -288,6 +303,7 @@
         "firefox-addons": "firefox-addons",
         "git-hooks": "git-hooks",
         "home-manager": "home-manager",
+        "my-templates": "my-templates",
         "nixpkgs": "nixpkgs",
         "stylix": "stylix"
       }

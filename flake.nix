@@ -23,6 +23,10 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    my-templates = {
+      url = "github:itsbilolbek/flake-templates";
+    };
   };
 
   outputs =
