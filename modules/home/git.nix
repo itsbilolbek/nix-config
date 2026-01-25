@@ -36,10 +36,12 @@
         alias = {
           aa = "add -A";
           br = "branch";
+          ca = "commit -am";
           ci = "commit";
+          cm = "commit -m";
           co = "checkout";
           st = "status -s";
-          dog = "log --oneline --graph --decorate --all";
+          graph = "log --oneline --graph --decorate --all";
           unstage = "reset HEAD --";
         };
       };
@@ -70,6 +72,9 @@
       settings = {
         git_protocol = "ssh";
         prompt = "enabled";
+        aliases = {
+          co = "pr checkout";
+        };
       };
     };
   };
