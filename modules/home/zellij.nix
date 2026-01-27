@@ -4,7 +4,6 @@
 
   programs.zellij = {
     enable = true;
-    # enableZshIntegration = true;  # Autostarts Zellij in alacritty and Zed
     settings = {
       theme = "gruvbox-dark";
       default_mode = "locked";

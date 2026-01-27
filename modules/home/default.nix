@@ -45,6 +45,7 @@
     ./btop.nix
     ./direnv.nix
     ./firefox.nix
+    ./fish.nix
     ./fzf.nix
     ./git.nix
     ./helix.nix
@@ -53,7 +54,6 @@
     ./stylix.nix
     ./zed.nix
     ./zellij.nix
-    ./zsh.nix
   ];
 
   programs.home-manager.enable = true;
