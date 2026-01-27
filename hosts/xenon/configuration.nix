@@ -7,10 +7,33 @@
     ../../modules/nix
   ];
 
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-    systemd-boot.configurationLimit = 10;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      systemd-boot.configurationLimit = 10;
+      timeout = 3;
+    };
+
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "loglevel=3"
+      "rd.systemd.show_status=false"
+      "rd.udev.log_level=3"
+      "udev.log_priority=3"
+      "systemd.show_status=false"
+    ];
+
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    initrd.kernelModules = [ "amdgpu" ];
+
+    plymouth = {
+      enable = true;
+      theme = "spinner";
+    };
   };
 
   system.stateVersion = "25.11";
