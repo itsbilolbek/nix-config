@@ -1,0 +1,26 @@
+name: "Update Flake Inputs"
+on:
+  schedule:
+    - cron: "0 0 * * 0" # Every Sunday at 00:00
+  workflow_dispatch: # Allows you to run it manually from the GitHub UI
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+        with:
+          extra-conf: |
+            experimental-features = nix-command flakes
+
+      - name: Update flake.lock
+        uses: DeterminateSystems/update-flake-lock@main
+        with:
+          token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}
+          pr-title: "chore: update flake.lock"
+          pr-labels: |
+            automated
