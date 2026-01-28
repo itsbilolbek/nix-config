@@ -5,9 +5,13 @@
     sqlite
 
     # GUI
+    baobab
+    ncdu
+    kdePackages.kdeconnect-kde
     libreoffice-fresh
     # telegram-desktop
     zoom-us
+    obsidian
     poedit
     qbittorrent
     celluloid
