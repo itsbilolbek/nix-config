@@ -40,6 +40,16 @@
         show_background = true;
       };
 
+      external_formatter = {
+        command = "nix";
+        arguments = [
+          "fmt"
+          "--"
+          "--stdin"
+          "{buffer_path}"
+        ];
+      };
+
       languages = {
         C = {
           language_servers = [ "clangd" ];
@@ -54,12 +64,11 @@
             "nixd"
             "!nil"
           ];
-          formatter.external.command = "nixfmt";
         };
 
         Python = {
           language_servers = [
-            "basedpyright"
+            "pyright"
             "ruff"
           ];
           formatter.language_server.name = "ruff";
