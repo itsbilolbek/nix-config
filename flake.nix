@@ -19,6 +19,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
+
     git-hooks = {
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,17 +33,27 @@
   };
 
   outputs =
-    {
+    inputs@{
       self,
       nixpkgs,
       home-manager,
       stylix,
       git-hooks,
+      treefmt-nix,
       ...
-    }@inputs:
+    }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      treefmtConfig = treefmt-nix.lib.evalModule pkgs {
+        projectRootFile = "flake.nix";
+        programs = {
+          nixfmt.enable = true;
+          deadnix.enable = true;
+          statix.enable = true;
+          yamlfmt.enable = true;
+        };
+      };
     in
     {
       nixosConfigurations."xenon" = nixpkgs.lib.nixosSystem {
@@ -68,27 +81,20 @@
         ];
       };
 
-      formatter.${system} =
-        let
-          inherit (self.checks.${system}.pre-commit-check.config) package configFile;
-          script = ''
-            ${pkgs.lib.getExe package} run --all-files --config ${configFile}
-          '';
-        in
-        pkgs.writeShellScriptBin "pre-commit-run" script;
+      formatter.${system} = treefmtConfig.config.build.wrapper;
 
       checks.${system}.pre-commit-check = git-hooks.lib.${system}.run {
         src = ./.;
         hooks = {
-          nixfmt.enable = true;
-          statix.enable = true;
-          deadnix.enable = true;
+          treefmt = {
+            enable = true;
+            package = treefmtConfig.config.build.wrapper;
+          };
 
           end-of-file-fixer.enable = true;
           trim-trailing-whitespace.enable = true;
 
           check-added-large-files.enable = true;
-          check-yaml.enable = true;
         };
       };
 
