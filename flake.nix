@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/release-25.11";
+    flake-parts.url = "github:hercules-ci/flake-parts";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
@@ -34,80 +35,30 @@
 
   outputs =
     inputs@{
-      self,
-      nixpkgs,
-      home-manager,
-      stylix,
-      git-hooks,
-      treefmt-nix,
+      # self,
+      # nixpkgs,
+      flake-parts,
       ...
     }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      treefmtConfig = treefmt-nix.lib.evalModule pkgs {
-        projectRootFile = "flake.nix";
-        programs = {
-          nixfmt.enable = true;
-          deadnix.enable = true;
-          statix.enable = true;
-          yamlfmt.enable = true;
-        };
-      };
-    in
-    {
-      nixosConfigurations."xenon" = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
 
-        modules = [
-          ./hosts/xenon/configuration.nix
-          stylix.nixosModules.stylix
+      imports = [
+        ./shell.nix
+        ./nixos.nix
+      ];
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "backup";
-              extraSpecialArgs = { inherit inputs; };
-              users.mocha = {
-                imports = [
-                  ./modules/home
-                  inputs.stylix.homeModules.stylix
-                ];
-              };
-            };
-          }
-        ];
-      };
+      # perSystem =
+      #   {
+      #     # config,
+      #     # self',
+      #     # inputs',
+      #     # pkgs,
+      #     # system,
+      #     ...
+      #   }:
+      #   {
 
-      formatter.${system} = treefmtConfig.config.build.wrapper;
-
-      checks.${system}.pre-commit-check = git-hooks.lib.${system}.run {
-        src = ./.;
-        hooks = {
-          treefmt = {
-            enable = true;
-            package = treefmtConfig.config.build.wrapper;
-          };
-
-          end-of-file-fixer.enable = true;
-          trim-trailing-whitespace.enable = true;
-
-          check-added-large-files.enable = true;
-        };
-      };
-
-      devShells.${system} = {
-        default =
-          let
-            pkgs = nixpkgs.legacyPackages.${system};
-            inherit (self.checks.${system}.pre-commit-check) shellHook enabledPackages;
-          in
-          pkgs.mkShell {
-            inherit shellHook;
-            buildInputs = enabledPackages ++ [ pkgs.nixd ];
-          };
-      };
+      #   };
     };
 }
