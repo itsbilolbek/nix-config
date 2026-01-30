@@ -41,6 +41,7 @@
 
         nativeBuildInputs = with pkgs; [
           config.treefmt.build.wrapper
+          nixd
         ];
       };
     };

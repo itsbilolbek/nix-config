@@ -47,18 +47,5 @@
         ./shell.nix
         ./nixos.nix
       ];
-
-      # perSystem =
-      #   {
-      #     # config,
-      #     # self',
-      #     # inputs',
-      #     # pkgs,
-      #     # system,
-      #     ...
-      #   }:
-      #   {
-
-      #   };
     };
 }
