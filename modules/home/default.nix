@@ -4,9 +4,13 @@
     # Development
     sqlite
 
+    # LSP
+    nixd
+    llvmPackages.clang-unwrapped
+    pyright
+    ruff
+
     # GUI
-    baobab
-    ncdu
     kdePackages.kdeconnect-kde
     libreoffice-fresh
     # telegram-desktop
@@ -31,6 +35,7 @@
     gh
     jq
     moreutils # sponge util
+    ncdu
     nh
     ripgrep
     sd
