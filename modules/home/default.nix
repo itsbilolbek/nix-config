@@ -1,26 +1,43 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./alacritty.nix
+    ./bat.nix
+    ./btop.nix
+    ./direnv.nix
+    ./firefox.nix
+    ./fish.nix
+    ./fzf.nix
+    ./git.nix
+    ./helix.nix
+    ./ssh.nix
+    ./starship.nix
+    ./stylix.nix
+    ./zed.nix
+    ./zellij.nix
+  ];
+
   home.packages = with pkgs; [
     # Development
     sqlite
 
     # LSP
-    nixd
     llvmPackages.clang-unwrapped
+    nixd
     pyright
     ruff
 
     # GUI
+    celluloid
     kdePackages.kdeconnect-kde
     libreoffice-fresh
     # telegram-desktop
-    zoom-us
     obsidian
     poedit
     qbittorrent
-    celluloid
     virtualbox
     xreader
+    zoom-us
 
     # Archiving
     zip
@@ -46,23 +63,6 @@
     fontconfig
     gnupg
     hunspell
-  ];
-
-  imports = [
-    ./alacritty.nix
-    ./bat.nix
-    ./btop.nix
-    ./direnv.nix
-    ./firefox.nix
-    ./fish.nix
-    ./fzf.nix
-    ./git.nix
-    ./helix.nix
-    ./ssh.nix
-    ./starship.nix
-    ./stylix.nix
-    ./zed.nix
-    ./zellij.nix
   ];
 
   programs.home-manager.enable = true;
