@@ -2,16 +2,16 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/boot
+    ../../modules/nixos/boot.nix
     ../../modules/nixos/desktop/cinnamon
-    ../../modules/nixos/fcitx
-    ../../modules/nixos/fonts
-    ../../modules/nixos/gaming
-    ../../modules/nixos/i18n
-    ../../modules/nixos/networking
-    ../../modules/nixos/nix-settings
-    ../../modules/nixos/virtualisation
-    ../../modules/nixos/users
+    ../../modules/nixos/fcitx.nix
+    ../../modules/nixos/fonts.nix
+    ../../modules/nixos/gaming.nix
+    ../../modules/nixos/i18n.nix
+    ../../modules/nixos/networking.nix
+    ../../modules/nixos/nix-settings.nix
+    ../../modules/nixos/virtualisation.nix
+    ../../modules/nixos/users.nix
     ../../modules/nixos/xkb
   ];
 
