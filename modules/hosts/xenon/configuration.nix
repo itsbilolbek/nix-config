@@ -1,7 +1,7 @@
 { inputs, self, ... }:
 {
   flake.nixosConfigurations.xenon = inputs.nixpkgs.lib.nixosSystem {
-    specialArgs = { inherit inputs; };
+    specialArgs = { inherit inputs self; };
 
     modules = [
       self.nixosModules.hostXenon
@@ -13,23 +13,13 @@
     {
       imports = [
         inputs.stylix.nixosModules.stylix
-        inputs.home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            backupFileExtension = "backup";
-            extraSpecialArgs = { inherit inputs; };
-            users.mocha = self.homeModules.mocha;
-          };
-        }
 
-        # self.homeModules.mocha
         self.nixosModules.boot
         self.nixosModules.cinnamon
         self.nixosModules.fcitx
         self.nixosModules.fonts
         self.nixosModules.gaming
+        self.nixosModules.home-manager
         self.nixosModules.i18n
         self.nixosModules.networking
         self.nixosModules.nix-settings
