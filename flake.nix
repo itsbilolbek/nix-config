@@ -12,6 +12,8 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    import-tree.url = "github:vic/import-tree";
+
     stylix.url = "github:nix-community/stylix/release-25.11";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -27,11 +29,7 @@
       imports = [
         inputs.home-manager.flakeModules.home-manager
 
-        ./modules/hosts/xenon/configuration.nix
-        ./modules/hosts/xenon/hardware-configuration.nix
-        ./modules/home
-        ./modules/nixos
-        ./modules/shell.nix
+        (inputs.import-tree ./modules)
       ];
     };
 }
