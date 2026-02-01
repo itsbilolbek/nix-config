@@ -12,13 +12,16 @@
         '';
 
         shellAliases = {
+          ll = "eza -Alh --no-quotes --git --icons=auto --group-directories-first";
+          ls = "eza";
           tree = "eza --tree";
         };
 
         shellAbbrs = {
-          ll = "eza -Alh --no-quotes --git --icons=auto --group-directories-first";
           grep = "grep --color=auto";
           zj = "zellij";
+          tempd = "cd (mktemp -d)";
+          template = "nix flake init -t github:itsbilolbek/flake-templates#";
         };
       };
     };

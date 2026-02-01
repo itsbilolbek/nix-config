@@ -12,10 +12,6 @@
         package = pkgs.nix;
         nixPath = [ "nixpkgs=${inputs.nixpkgs}" ]; # Use system nixpkgs for nixd lsp
 
-        registry = {
-          my-templates.flake = inputs.my-templates;
-        };
-
         gc = {
           automatic = true;
           dates = "weekly";

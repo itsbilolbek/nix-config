@@ -238,21 +238,6 @@
         "type": "github"
       }
     },
-    "my-templates": {
-      "locked": {
-        "lastModified": 1769860706,
-        "narHash": "sha256-NaQNaMXwckodkIQA5umCvG19lv25c50MpBxISH43hH8=",
-        "owner": "itsbilolbek",
-        "repo": "flake-templates",
-        "rev": "b0cb6059a9eadfbc77134375d9c20e7418e0396e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "itsbilolbek",
-        "repo": "flake-templates",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1769900590,
@@ -314,7 +299,6 @@
         "flake-parts": "flake-parts",
         "git-hooks": "git-hooks",
         "home-manager": "home-manager",
-        "my-templates": "my-templates",
         "nixpkgs": "nixpkgs",
         "stylix": "stylix",
         "treefmt-nix": "treefmt-nix"
