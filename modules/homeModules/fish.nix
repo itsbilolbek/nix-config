@@ -21,7 +21,10 @@
           grep = "grep --color=auto";
           zj = "zellij";
           tempd = "cd (mktemp -d)";
-          template = "nix flake init -t github:itsbilolbek/flake-templates#";
+        };
+
+        functions = {
+          template.body = "nix flake init -t github:itsbilolbek/flake-templates#\"$argv\"";
         };
       };
     };
