@@ -1,9 +1,12 @@
-{ pkgs, ... }:
 {
-  home.packages = [ pkgs.bat ];
+  flake.homeModules.bat =
+    { pkgs, ... }:
+    {
+      home.packages = [ pkgs.bat ];
 
-  programs.bat = {
-    enable = true;
-    config.theme = "gruvbox-dark";
-  };
+      programs.bat = {
+        enable = true;
+        config.theme = "gruvbox-dark";
+      };
+    };
 }

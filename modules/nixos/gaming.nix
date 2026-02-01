@@ -1,16 +1,19 @@
-{ pkgs, ... }:
 {
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  flake.nixosModules.gaming =
+    { pkgs, ... }:
+    {
+      services.xserver.videoDrivers = [ "amdgpu" ];
 
-  hardware.graphics.enable = true;
+      hardware.graphics.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    mangohud
-  ];
+      environment.systemPackages = with pkgs; [
+        mangohud
+      ];
 
-  programs.gamemode.enable = true;
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true;
-  };
+      programs.gamemode.enable = true;
+      programs.steam = {
+        enable = true;
+        gamescopeSession.enable = true;
+      };
+    };
 }

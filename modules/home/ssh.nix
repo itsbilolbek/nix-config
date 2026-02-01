@@ -1,21 +1,23 @@
 {
-  programs.ssh = {
-    enable = true;
-    enableDefaultConfig = false;
+  flake.homeModules.ssh = {
+    programs.ssh = {
+      enable = true;
+      enableDefaultConfig = false;
 
-    matchBlocks = {
-      "*" = { };
-      "github.com" = {
-        hostname = "github.com";
-        user = "git";
-        identityFile = "~/.ssh/id_ed25519";
-        addKeysToAgent = "yes";
+      matchBlocks = {
+        "*" = { };
+        "github.com" = {
+          hostname = "github.com";
+          user = "git";
+          identityFile = "~/.ssh/id_ed25519";
+          addKeysToAgent = "yes";
+        };
       };
+      extraConfig = ''
+        Include ~/.ssh/config_private
+      '';
     };
-    extraConfig = ''
-      Include ~/.ssh/config_private
-    '';
-  };
 
-  services.ssh-agent.enable = true;
+    services.ssh-agent.enable = true;
+  };
 }

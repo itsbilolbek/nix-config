@@ -25,13 +25,18 @@
   };
 
   outputs =
-    inputs@{ flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
+    inputs:
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
 
       imports = [
-        ./nixos.nix
-        ./shell.nix
+        inputs.home-manager.flakeModules.home-manager
+
+        ./modules/hosts/xenon/configuration.nix
+        ./modules/hosts/xenon/hardware-configuration.nix
+        ./modules/home
+        ./modules/nixos
+        ./modules/shell.nix
       ];
     };
 }

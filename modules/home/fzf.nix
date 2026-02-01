@@ -1,10 +1,13 @@
-{ pkgs, ... }:
 {
-  home.packages = [ pkgs.fzf ];
+  flake.homeModules.fzf =
+    { pkgs, ... }:
+    {
+      home.packages = [ pkgs.fzf ];
 
-  programs.fzf = {
-    enable = true;
+      programs.fzf = {
+        enable = true;
 
-    enableBashIntegration = true;
-  };
+        enableBashIntegration = true;
+      };
+    };
 }

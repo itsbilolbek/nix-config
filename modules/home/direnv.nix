@@ -1,12 +1,15 @@
-{ pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    direnv
-    nix-direnv
-  ];
+  flake.homeModules.direnv =
+    { pkgs, ... }:
+    {
+      home.packages = with pkgs; [
+        direnv
+        nix-direnv
+      ];
 
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-  };
+      programs.direnv = {
+        enable = true;
+        nix-direnv.enable = true;
+      };
+    };
 }
