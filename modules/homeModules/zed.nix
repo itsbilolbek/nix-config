@@ -22,7 +22,7 @@
           collaboration_panel.button = false;
           buffer_line_height = "standard";
           autosave = "on_focus_change";
-          theme = "Gruvbox Dark";
+          theme = "Catppuccin Mocha";
           icon_theme = "Colored Zed Icons Theme Dark";
           buffer_font_family = "JetBrainsMono Nerd Font Mono";
           ui_font_family = "JetBrainsMono Nerd Font";

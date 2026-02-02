@@ -5,6 +5,7 @@
       home.packages = with pkgs; [
         nerd-fonts.jetbrains-mono
         nerd-fonts.hack
+        tinty
       ];
 
       stylix = {
@@ -24,8 +25,7 @@
         };
 
         image = ../../foggy-forest-wallpaper.jpg;
-        # colorScheme = inputs.stylix.colorSchemes.gruvbox-dark-hard;
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
         fonts = {
           sizes = {
             applications = 11;

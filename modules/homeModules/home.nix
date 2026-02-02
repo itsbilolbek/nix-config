@@ -33,6 +33,7 @@
         ruff
 
         # GUI
+        anki
         celluloid
         kdePackages.kdeconnect-kde
         libreoffice-fresh
@@ -45,8 +46,7 @@
         zoom-us
 
         # Archiving
-        zip
-        unzip
+        ouch
 
         # Terminal and text utils
         coreutils
