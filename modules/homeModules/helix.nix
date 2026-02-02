@@ -8,10 +8,6 @@
         enable = true;
         defaultEditor = true;
 
-        # settings = {
-        #   theme = "gruvbox_dark_hard";
-        # };
-
         languages = {
           language-server = {
             clangd.command = "clangd";

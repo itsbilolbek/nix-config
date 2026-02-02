@@ -7,7 +7,7 @@
       programs.zellij = {
         enable = true;
         settings = {
-          theme = "gruvbox-dark";
+          theme = "catppuccin-macchiato";
           default_mode = "locked";
           pane_frames = false;
           show_startup_tips = false;
