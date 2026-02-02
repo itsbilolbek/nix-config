@@ -44,8 +44,10 @@
               cm = "commit -m";
               co = "checkout";
               st = "status -s";
+              oops = "commit --amend --no-edit";
               graph = "log --oneline --graph --decorate --all";
               unstage = "reset HEAD --";
+              undo = "reset --soft HEAD~1";
             };
           };
 
