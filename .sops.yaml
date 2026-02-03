@@ -1,9 +1,0 @@
-keys:
-  - &admin_age age1kx3xxc64hph8kw7tnakuczj6sg6xfhju2k3xcpntxarxd36z6cpqn92s4n
-  - &host_xenon age17xhqqnu3zhtlfkxmulwpcmlrw52gw732lzlx3tkaamzz0xnvuptq2llp7l
-creation_rules:
-  - path_regex: secrets.yaml$
-    key_groups:
-      - age:
-          - *admin_age
-          - *host_xenon
