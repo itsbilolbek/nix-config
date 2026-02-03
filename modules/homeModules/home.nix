@@ -41,7 +41,6 @@
         obsidian
         poedit
         qbittorrent
-        virtualbox
         xreader
         zoom-us
 

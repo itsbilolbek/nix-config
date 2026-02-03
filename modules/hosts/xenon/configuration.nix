@@ -20,7 +20,7 @@
         self.nixosModules.fhs
         self.nixosModules.gaming
         self.nixosModules.home-manager
-        self.nixosModules.virtualisation
+        self.nixosModules.qemu
         self.nixosModules.usersMocha
       ];
 
