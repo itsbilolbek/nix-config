@@ -12,6 +12,9 @@
           "wheel"
           "podman"
         ];
+        openssh.authorizedKeys.keys = [
+          "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGEoLiI2EBrig34UzX2xY22+FK5JeYfUO5IqmyahjJSQ bilolbeknormuminov@gmail.com" # Xenon laptop
+        ];
       };
 
       # Decrypt mocha-password to /run/secrets-for-user/ so it can be used to create the user
