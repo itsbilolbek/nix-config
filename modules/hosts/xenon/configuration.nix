@@ -9,7 +9,7 @@
   };
 
   flake.nixosModules.hostXenon =
-    { pkgs, ... }:
+    { ... }:
     {
       imports = [
         inputs.stylix.nixosModules.stylix
@@ -17,6 +17,7 @@
         self.nixosModules.cinnamon
         self.nixosModules.core
         self.nixosModules.fcitx
+        self.nixosModules.fhs
         self.nixosModules.gaming
         self.nixosModules.home-manager
         self.nixosModules.virtualisation
@@ -29,12 +30,6 @@
 
       networking.hostName = "xenon";
 
-      services.openssh.enable = true;
-
       programs.fish.enable = true;
-
-      programs.nix-ld.enable = true;
-
-      environment.systemPackages = [ pkgs.uv ];
     };
 }
