@@ -11,6 +11,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Add ssh key for accessing secrets repo
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SECRETS_REPO_SSH_KEY }}
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
         with:
