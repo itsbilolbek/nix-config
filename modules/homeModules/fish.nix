@@ -12,6 +12,7 @@
         '';
 
         shellAliases = {
+          cat = "bat";
           ll = "eza -Alh --no-quotes --git --icons=auto --group-directories-first";
           ls = "eza";
           tree = "eza --tree";

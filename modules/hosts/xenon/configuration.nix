@@ -23,8 +23,9 @@
         self.nixosModules.i18n
         self.nixosModules.networking
         self.nixosModules.nix-settings
+        self.nixosModules.sops
         self.nixosModules.virtualisation
-        self.nixosModules.users
+        self.nixosModules.usersMocha
         self.nixosModules.xkb
       ];
 
@@ -35,8 +36,6 @@
       networking.hostName = "xenon";
 
       services.openssh.enable = true;
-
-      users.users.mocha.shell = pkgs.fish;
 
       programs.fish.enable = true;
 

@@ -16,6 +16,12 @@
 
     import-tree.url = "github:vic/import-tree";
 
+    my-secrets.url = "git+ssh://git@github.com/itsbilolbek/nix-secrets.git";
+    my-secrets.flake = false;
+
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
     stylix.url = "github:nix-community/stylix/release-25.11";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
