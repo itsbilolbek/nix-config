@@ -14,19 +14,13 @@
       imports = [
         inputs.stylix.nixosModules.stylix
 
-        self.nixosModules.boot
         self.nixosModules.cinnamon
+        self.nixosModules.core
         self.nixosModules.fcitx
-        self.nixosModules.fonts
         self.nixosModules.gaming
         self.nixosModules.home-manager
-        self.nixosModules.i18n
-        self.nixosModules.networking
-        self.nixosModules.nix-settings
-        self.nixosModules.sops
         self.nixosModules.virtualisation
         self.nixosModules.usersMocha
-        self.nixosModules.xkb
       ];
 
       boot.initrd.kernelModules = [ "amdgpu" ];
