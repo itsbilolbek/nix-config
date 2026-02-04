@@ -1,3 +1,4 @@
+{ inputs, ... }:
 let
   sshPath = "/home/mocha/.ssh/id_ed25519";
 in
@@ -15,31 +16,29 @@ in
       };
     };
 
-  flake.homeModules.ssh =
-    { inputs, ... }:
-    {
-      imports = [
-        inputs.sops-nix.homeManagerModules.sops
-      ];
+  flake.homeModules.ssh = {
+    imports = [
+      inputs.sops-nix.homeManagerModules.sops
+    ];
 
-      home.file.".ssh/id_ed25519.pub".text =
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGEoLiI2EBrig34UzX2xY22+FK5JeYfUO5IqmyahjJSQ bilolbeknormuminov@gmail.com";
+    home.file.".ssh/id_ed25519.pub".text =
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGEoLiI2EBrig34UzX2xY22+FK5JeYfUO5IqmyahjJSQ bilolbeknormuminov@gmail.com";
 
-      programs.ssh = {
-        enable = true;
-        enableDefaultConfig = false;
+    programs.ssh = {
+      enable = true;
+      enableDefaultConfig = false;
 
-        matchBlocks = {
-          "*" = { };
-          "github.com" = {
-            hostname = "github.com";
-            user = "git";
-            identityFile = sshPath;
-            addKeysToAgent = "yes";
-          };
+      matchBlocks = {
+        "*" = { };
+        "github.com" = {
+          hostname = "github.com";
+          user = "git";
+          identityFile = sshPath;
+          addKeysToAgent = "yes";
         };
       };
-
-      services.ssh-agent.enable = true;
     };
+
+    services.ssh-agent.enable = true;
+  };
 }

@@ -9,7 +9,6 @@
       useGlobalPkgs = true;
       useUserPackages = true;
       backupFileExtension = "backup";
-      extraSpecialArgs = { inherit inputs self; };
       users.mocha = self.homeModules.mocha;
     };
   };
