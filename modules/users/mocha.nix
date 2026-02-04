@@ -2,9 +2,9 @@
   flake.nixosModules.usersMocha =
     { config, pkgs, ... }:
     {
-      users.users.mocha = {
+      users.users.${config.preferences.user.name} = {
         isNormalUser = true;
-        description = "Bilolbek Normuminov";
+        description = "${config.preferences.user.name}'s account";
         hashedPasswordFile = config.sops.secrets.mocha-password.path;
         shell = pkgs.fish;
         extraGroups = [

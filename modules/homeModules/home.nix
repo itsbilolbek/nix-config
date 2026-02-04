@@ -1,7 +1,7 @@
 { inputs, self, ... }:
 {
-  flake.homeModules.mocha =
-    { pkgs, ... }:
+  flake.homeModules.defaultUser =
+    { config, pkgs, ... }:
     {
       imports = [
         inputs.stylix.homeModules.stylix
@@ -72,15 +72,13 @@
       programs.home-manager.enable = true;
 
       home = {
-        username = "mocha";
-        homeDirectory = "/home/mocha";
         stateVersion = "25.11";
         sessionVariables = {
           EDITOR = "hx";
           VISUAL = "hx";
           TERMINAL = "alacritty";
           XDG_TERMINAL_EMULATOR = "alacritty";
-          NH_FLAKE = "/home/mocha/nix-config";
+          NH_FLAKE = "${config.home.homeDirectory}/nix-config";
         };
       };
 

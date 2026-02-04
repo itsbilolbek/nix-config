@@ -23,7 +23,7 @@
             user = {
               name = "Normuminov Bilolbek";
               email = "bilolbeknormuminov@gmail.com";
-              signingkey = "~/.ssh/id_ed25519.pub";
+              signingkey = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
             };
 
             init.defaultBranch = "main";
