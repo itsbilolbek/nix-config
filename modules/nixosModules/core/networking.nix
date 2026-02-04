@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.networking = {
+  flake.nixosModules.core = {
     networking = {
       nameservers = [
         "1.1.1.1"

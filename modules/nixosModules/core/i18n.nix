@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.i18n = {
+  flake.nixosModules.core = {
     time.timeZone = "Asia/Tashkent";
 
     i18n = {

@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  flake.nixosModules.nix-settings =
+  flake.nixosModules.core =
     {
       pkgs,
       ...

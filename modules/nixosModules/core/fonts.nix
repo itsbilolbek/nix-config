@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.fonts =
+  flake.nixosModules.core =
     { pkgs, ... }:
     {
       fonts = {

@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.xkb = {
+  flake.nixosModules.core = {
     services.xserver.xkb = {
       layout = "uzx,us";
       options = "ctrl:nocaps";
