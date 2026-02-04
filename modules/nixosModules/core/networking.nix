@@ -19,8 +19,14 @@
 
     services.openssh = {
       enable = true;
-      settings.PasswordAuthentication = false;
-      settings.KbdInteractiveAuthentication = false;
+      settings = {
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+        PermitRootLogin = "no";
+        UseDns = true;
+        # SSH should check the permissions of the identity files and directories
+        StrictModes = true;
+      };
     };
   };
 }
