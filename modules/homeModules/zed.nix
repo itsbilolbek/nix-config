@@ -32,6 +32,10 @@
             git_status = true;
             show_diagnostics = "errors";
           };
+          titel_bar = {
+            show_sign_in = false;
+            show_branch_icon = true;
+          };
           base_keymap = "VSCode";
           show_whitespaces = "boundary";
           minimap.show = "never";
