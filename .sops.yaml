@@ -1,0 +1,14 @@
+keys:
+  - &admin_age age1kx3xxc64hph8kw7tnakuczj6sg6xfhju2k3xcpntxarxd36z6cpqn92s4n
+  # nix-shell -p ssh-to-age --run 'cat /etc/ssh/ssh_host_ed25519_key.pub | ssh-to-age'
+  - &host_xenon age17xhqqnu3zhtlfkxmulwpcmlrw52gw732lzlx3tkaamzz0xnvuptq2llp7l
+creation_rules:
+  - path_regex: secrets/admin.yaml$
+    key_groups:
+      - age:
+          - *admin_age
+  - path_regex: secrets/common.yaml$
+    key_groups:
+      - age:
+          - *admin_age
+          - *host_xenon

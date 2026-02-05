@@ -1,11 +1,15 @@
 {
   flake.nixosModules.usersMocha =
     { config, pkgs, ... }:
+    let
+      username = config.preferences.user.name;
+      userPassword = "mocha-password";
+    in
     {
-      users.users.${config.preferences.user.name} = {
+      users.users.${username} = {
         isNormalUser = true;
-        description = "${config.preferences.user.name}'s account";
-        hashedPasswordFile = config.sops.secrets.mocha-password.path;
+        description = "${username}'s account";
+        hashedPasswordFile = config.sops.secrets.${userPassword}.path;
         shell = pkgs.fish;
         extraGroups = [
           "networkmanager"
@@ -18,7 +22,7 @@
       };
 
       # Decrypt mocha-password to /run/secrets-for-user/ so it can be used to create the user
-      sops.secrets.mocha-password.neededForUsers = true;
+      sops.secrets.${userPassword}.neededForUsers = true;
       users.mutableUsers = false; # Required for password to be set via sops during system activation
     };
 }

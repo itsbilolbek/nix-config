@@ -1,9 +1,9 @@
-{ inputs, ... }:
+{ inputs, self, ... }:
 {
   flake.homeModules.ssh =
     { config, ... }:
     let
-      sshPath = "${config.home.homeDirectory}/.ssh/id_ed25519";
+      githubSshKeyName = "github-ssh";
     in
     {
       imports = [
@@ -12,9 +12,9 @@
 
       sops = {
         age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
-        defaultSopsFile = "${inputs.my-secrets}/secrets.yaml";
-        secrets."private-keys/mocha" = {
-          path = sshPath;
+        defaultSopsFile = "${self}/secrets/admin.yaml";
+        secrets.${githubSshKeyName} = {
+          path = "${config.home.homeDirectory}/.ssh/id_ed25519";
         };
       };
 
@@ -30,7 +30,7 @@
           "github.com" = {
             hostname = "github.com";
             user = "git";
-            identityFile = sshPath;
+            identityFile = config.sops.secrets.${githubSshKeyName}.path;
             addKeysToAgent = "yes";
           };
         };

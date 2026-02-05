@@ -42,6 +42,7 @@
           config.treefmt.build.wrapper
           nixd
           just
+          sops
         ];
       };
     };
