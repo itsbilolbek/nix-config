@@ -7,19 +7,22 @@
     ];
   };
 
-  flake.nixosModules.hostArgon = [
-    self.nixosModules.core
-    self.nixosModules.usersMocha
-    self.nixosModules.virtualisation
-  ];
+  flake.nixosModules.hostArgon = {
 
-  networking.hostName = "argon";
-  system.stateVersion = "25.11";
+    imports = [
+      self.nixosModules.core
+      self.nixosModules.usersMocha
+      self.nixosModules.virtualisation
+    ];
 
-  documentation.enable = false;
-  documentation.nixos.enable = false;
+    networking.hostName = "argon";
+    system.stateVersion = "25.11";
 
-  nix.gc.options = "--delete-older-than 3d";
+    documentation.enable = false;
+    documentation.nixos.enable = false;
 
-  programs.fish.enable = true;
+    nix.gc.options = "--delete-older-than 3d";
+
+    programs.fish.enable = true;
+  };
 }
