@@ -11,7 +11,6 @@
 
     imports = [
       self.nixosModules.core
-      self.nixosModules.usersMocha
       self.nixosModules.virtualisation
     ];
 
@@ -22,7 +21,5 @@
     documentation.nixos.enable = false;
 
     nix.gc.options = "--delete-older-than 3d";
-
-    programs.fish.enable = true;
   };
 }

@@ -18,7 +18,6 @@
       self.nixosModules.koreanIME
       self.nixosModules.plymouth
       self.nixosModules.qemu
-      self.nixosModules.usersMocha
       self.nixosModules.uzbekl10n
     ];
 
@@ -29,7 +28,5 @@
     system.stateVersion = "25.11";
 
     networking.hostName = "xenon";
-
-    programs.fish.enable = true;
   };
 }
