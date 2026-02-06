@@ -2,6 +2,10 @@
 default:
   @just --list
 
+build-vm:
+  nixos-rebuild build-vm --flake .#argon
+  ./result/bin/run-argon-vm
+
 # Update secrets, stage .nix files
 rebuild-pre:
   nix flake update my-secrets
