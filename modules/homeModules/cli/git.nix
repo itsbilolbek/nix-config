@@ -1,8 +1,12 @@
 {
-  flake.homeModules.git =
+  flake.homeModules.cli =
     { config, pkgs, ... }:
+    let
+      inherit (config.home) homeDirectory;
+    in
     {
       home.packages = with pkgs; [
+        gh
         git
         delta
       ];
@@ -21,20 +25,17 @@
 
           settings = {
             user = {
-              name = "Normuminov Bilolbek";
+              name = "Bilolbek Normuminov";
               email = "bilolbeknormuminov@gmail.com";
-              signingkey = "${config.home.homeDirectory}/.ssh/id_ed25519.pub";
+              signingkey = "${homeDirectory}/.ssh/id_ed25519.pub";
             };
 
+            core.editor = "${config.home.sessionVariables.EDITOR}";
+            core.autocrlf = "input";
             init.defaultBranch = "main";
             pull.rebase = true;
             rebase.autoStash = true;
             gpg.format = "ssh";
-
-            core = {
-              editor = "${config.home.sessionVariables.EDITOR}";
-              autocrlf = "input";
-            };
 
             alias = {
               aa = "add -A";
@@ -52,7 +53,7 @@
           };
 
           signing = {
-            key = "${config.home.homeDirectory}/.ssh/id_ed25519"; # # Leave blank when using the ssh format above
+            key = "${homeDirectory}/.ssh/id_ed25519"; # # Leave blank when using the ssh format above
             signByDefault = true;
             format = "ssh";
           };
@@ -63,11 +64,11 @@
           enableGitIntegration = true;
 
           options = {
-            side-by-side = true;
-            line-numbers = true;
-            dark = true;
             conflictStyle = "zdiff3";
+            dark = true;
+            line-numbers = true;
             navigate = true;
+            side-by-side = true;
           };
         };
 

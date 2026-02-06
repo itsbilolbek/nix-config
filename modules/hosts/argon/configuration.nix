@@ -2,16 +2,14 @@
 { inputs, self, ... }:
 {
   flake.nixosConfigurations.argon = inputs.nixpkgs.lib.nixosSystem {
-    modules = [
-      self.nixosModules.hostArgon
-    ];
+    modules = [ self.nixosModules.hostArgon ];
   };
 
   flake.nixosModules.hostArgon = {
 
-    imports = [
-      self.nixosModules.core
-      self.nixosModules.virtualisation
+    imports = with self.nixosModules; [
+      core
+      podman
     ];
 
     networking.hostName = "argon";
@@ -19,7 +17,5 @@
 
     documentation.enable = false;
     documentation.nixos.enable = false;
-
-    nix.gc.options = "--delete-older-than 3d";
   };
 }

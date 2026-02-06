@@ -1,6 +1,6 @@
 {
   flake.nixosModules.qemu =
-    { pkgs, ... }:
+    { config, pkgs, ... }:
     {
       environment.systemPackages = with pkgs; [
         qemu
@@ -9,7 +9,7 @@
       virtualisation.libvirtd.enable = true;
       programs.virt-manager.enable = true;
 
-      users.users.mocha.extraGroups = [
+      users.users.${config.preferences.user.name}.extraGroups = [
         "libvirtd"
         "kvm"
       ];

@@ -1,9 +1,7 @@
 { inputs, self, ... }:
 {
   flake.nixosModules.core = {
-    imports = [
-      inputs.sops-nix.nixosModules.sops
-    ];
+    imports = [ inputs.sops-nix.nixosModules.sops ];
 
     sops = {
       defaultSopsFile = "${self}/secrets/common.yaml";
@@ -11,7 +9,8 @@
       validateSopsFiles = false;
 
       secrets = {
-        "mocha-password" = { };
+        # Decrypt mocha-password to /run/secrets-for-user/ so it can be used to create the user
+        "mocha-password".neededForUsers = true;
       };
     };
   };

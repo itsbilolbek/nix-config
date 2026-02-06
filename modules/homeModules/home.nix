@@ -1,24 +1,65 @@
 { self, ... }:
 {
-  flake.homeModules.defaultUser =
-    { config, pkgs, ... }:
+  flake.homeModules.baseUser =
     {
-      imports = [
-        self.homeModules.alacritty
-        self.homeModules.bat
-        self.homeModules.btop
-        self.homeModules.direnv
-        self.homeModules.firefox
-        self.homeModules.fish
-        self.homeModules.fzf
-        self.homeModules.git
-        self.homeModules.helix
-        self.homeModules.ssh
-        self.homeModules.starship
-        self.homeModules.stylix
-        self.homeModules.zed
-        self.homeModules.zellij
+      config,
+      pkgs,
+      username,
+      ...
+    }:
+    {
+      imports = with self.homeModules; [
+        cli
+        fish
       ];
+
+      programs.home-manager.enable = true;
+      home = {
+        stateVersion = "25.11";
+        inherit username;
+        homeDirectory = "/home/${username}";
+        sessionVariables = {
+          NH_FLAKE = "${config.home.homeDirectory}/nix-config";
+        };
+      };
+
+      home.packages = with pkgs; [
+        coreutils
+        curl
+        dust
+        eza
+        fastfetch
+        fd
+        jq
+        moreutils # sponge util
+        ncdu
+        nh
+        ouch # archiving
+        ripgrep
+        sd
+        wget
+      ];
+    };
+
+  flake.homeModules.defaultUser =
+    { pkgs, ... }:
+    {
+      imports = with self.homeModules; [
+        alacritty
+        baseUser
+        firefox
+        stylix
+        zed
+      ];
+
+      xdg.enable = true;
+
+      fonts.fontconfig.enable = true;
+
+      i18n.inputMethod.fcitx5.settings.inputMethod = {
+        "0".name = "keyboard-us";
+        "1".name = "hangul";
+      };
 
       home.packages = with pkgs; [
         # Development
@@ -42,55 +83,11 @@
         xreader
         zoom-us
 
-        # Archiving
-        ouch
-
         # Terminal and text utils
-        coreutils
-        curl
-        dust
-        eza
-        fd
-        gh
-        jq
-        moreutils # sponge util
-        ncdu
-        nh
-        ripgrep
-        sd
         tealdeer
-        wget
 
-        fastfetch
         fontconfig
-        gnupg
         hunspell
       ];
-
-      programs.home-manager.enable = true;
-
-      home = {
-        stateVersion = "25.11";
-        sessionVariables = {
-          EDITOR = "hx";
-          VISUAL = "hx";
-          TERMINAL = "alacritty";
-          XDG_TERMINAL_EMULATOR = "alacritty";
-          NH_FLAKE = "${config.home.homeDirectory}/nix-config";
-        };
-      };
-
-      xdg.enable = true;
-
-      fonts.fontconfig.enable = true;
-
-      i18n.inputMethod.fcitx5.settings.inputMethod = {
-        "0" = {
-          name = "keyboard-us";
-        };
-        "1" = {
-          name = "hangul";
-        };
-      };
     };
 }

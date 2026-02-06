@@ -1,9 +1,7 @@
 { self, ... }:
 {
   flake.nixosModules.cinnamon = {
-    imports = [
-      self.nixosModules.desktop
-    ];
+    imports = [ self.nixosModules.desktop ];
 
     services.xserver = {
       enable = true;

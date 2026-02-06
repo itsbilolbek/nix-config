@@ -28,7 +28,6 @@
             extraGroups = [
               "networkmanager"
               "wheel"
-              "podman"
             ];
             openssh.authorizedKeys.keys = [
               "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGEoLiI2EBrig34UzX2xY22+FK5JeYfUO5IqmyahjJSQ bilolbeknormuminov@gmail.com" # Xenon laptop
@@ -37,9 +36,8 @@
 
           programs.fish.enable = true;
 
-          # Decrypt mocha-password to /run/secrets-for-user/ so it can be used to create the user
-          sops.secrets.${userPassword}.neededForUsers = true;
-          users.mutableUsers = false; # Required for password to be set via sops during system activation
+          # Required for password to be set via sops during system activation
+          users.mutableUsers = false;
         };
     };
 }

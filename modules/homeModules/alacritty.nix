@@ -4,6 +4,11 @@
     {
       home.packages = [ pkgs.alacritty ];
 
+      home.sessionVariables = {
+        TERMINAL = "alacritty";
+        XDG_TERMINAL_EMULATOR = "alacritty";
+      };
+
       programs.alacritty = {
         enable = true;
 

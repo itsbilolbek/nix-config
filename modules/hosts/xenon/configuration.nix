@@ -1,24 +1,21 @@
 { inputs, self, ... }:
 {
   flake.nixosConfigurations.xenon = inputs.nixpkgs.lib.nixosSystem {
-    modules = [
-      self.nixosModules.hostXenon
-    ];
+    modules = [ self.nixosModules.hostXenon ];
   };
 
   flake.nixosModules.hostXenon = {
-    imports = [
-      inputs.stylix.nixosModules.stylix
 
-      self.nixosModules.cinnamon
-      self.nixosModules.core
-      self.nixosModules.fhs
-      self.nixosModules.gaming
-      self.nixosModules.home-manager
-      self.nixosModules.koreanIME
-      self.nixosModules.plymouth
-      self.nixosModules.qemu
-      self.nixosModules.uzbekl10n
+    imports = with self.nixosModules; [
+      cinnamon
+      core
+      fhs
+      gaming
+      home-manager
+      koreanIME
+      plymouth
+      qemu
+      uzbekl10n
     ];
 
     boot.initrd.kernelModules = [ "amdgpu" ];

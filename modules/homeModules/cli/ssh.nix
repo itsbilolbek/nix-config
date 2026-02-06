@@ -1,20 +1,19 @@
 { inputs, self, ... }:
 {
-  flake.homeModules.ssh =
+  flake.homeModules.cli =
     { config, ... }:
     let
       githubSshKeyName = "github-ssh";
+      inherit (config.home) homeDirectory;
     in
     {
-      imports = [
-        inputs.sops-nix.homeManagerModules.sops
-      ];
+      imports = [ inputs.sops-nix.homeManagerModules.sops ];
 
       sops = {
-        age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
+        age.keyFile = "${homeDirectory}/.config/sops/age/keys.txt";
         defaultSopsFile = "${self}/secrets/admin.yaml";
         secrets.${githubSshKeyName} = {
-          path = "${config.home.homeDirectory}/.ssh/id_ed25519";
+          path = "${homeDirectory}/.ssh/id_ed25519";
         };
       };
 

@@ -1,5 +1,5 @@
 {
-  flake.homeModules.starship =
+  flake.homeModules.cli =
     { pkgs, ... }:
     {
       home.packages = [ pkgs.starship ];

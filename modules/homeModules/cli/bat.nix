@@ -1,5 +1,5 @@
 {
-  flake.homeModules.bat =
+  flake.homeModules.cli =
     { pkgs, ... }:
     {
       home.packages = [ pkgs.bat ];

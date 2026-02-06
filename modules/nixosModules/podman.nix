@@ -1,8 +1,12 @@
 {
-  flake.nixosModules.virtualisation =
-    { pkgs, ... }:
+  flake.nixosModules.podman =
+    { config, pkgs, ... }:
     {
       environment.systemPackages = [ pkgs.podman-compose ];
+
+      users.users.${config.preferences.user.name}.extraGroups = [
+        "podman"
+      ];
 
       virtualisation = {
         containers = {
