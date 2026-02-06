@@ -35,18 +35,10 @@
           cb.body = ''
             if isatty stdin
               # Paste logic: Try wayland first, then X11
-              if set -q WAYLAND_DISPLAY
-                wl-paste
-              else
-                xclip -selection clipboard -o
-              end
+              if set -q WAYLAND_DISPLAY; wl-paste; else; xclip -selection clipboard -o; end
             else
               # Copy logic: Read from stdin and send to clipboard
-              if set -q WAYLAND_DISPLAY
-                wl-copy
-              else
-                xclip -selection clipboard
-              end
+              if set -q WAYLAND_DISPLAY; wl-copy; else; xclip -selection clipboard; end
             end
           '';
         };

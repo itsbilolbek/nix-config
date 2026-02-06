@@ -1,11 +1,9 @@
-{ inputs, self, ... }:
+{ self, ... }:
 {
   flake.homeModules.defaultUser =
     { config, pkgs, ... }:
     {
       imports = [
-        inputs.stylix.homeModules.stylix
-
         self.homeModules.alacritty
         self.homeModules.bat
         self.homeModules.btop
