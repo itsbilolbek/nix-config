@@ -34,9 +34,13 @@ dev:
   @just rebuild-pre
   direnv reload
 
-build-vm host="helium":
+default_hostname := "helium"
+
+build-vm host=default_hostname:
+  rm -rf result
+  rm {{host}}.qcow2
   nixos-rebuild build-vm --flake .#{{host}}
   @just run-vm {{host}}
 
-run-vm host="helium":
+run-vm host=default_hostname:
   ./result/bin/run-{{host}}-vm

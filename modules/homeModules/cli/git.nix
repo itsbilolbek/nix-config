@@ -32,10 +32,11 @@
 
             core.editor = "${config.home.sessionVariables.EDITOR}";
             core.autocrlf = "input";
+            fetch.prune = true;
+            gpg.format = "ssh";
             init.defaultBranch = "main";
             pull.rebase = true;
             rebase.autoStash = true;
-            gpg.format = "ssh";
 
             alias = {
               aa = "add -A";
