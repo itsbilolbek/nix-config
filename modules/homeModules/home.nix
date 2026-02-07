@@ -48,7 +48,6 @@
         alacritty
         baseUser
         firefox
-        stylix
         zed
       ];
 

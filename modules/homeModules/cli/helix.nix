@@ -13,6 +13,10 @@
         enable = true;
         defaultEditor = true;
 
+        settings = {
+          theme = "catppuccin_mocha";
+        };
+
         languages = {
           language-server = {
             clangd.command = "clangd";
