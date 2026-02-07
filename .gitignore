@@ -10,3 +10,6 @@ result-*
 
 # Misc
 *.swp
+
+# QEMU disk image file
+*.qcow2

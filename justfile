@@ -2,10 +2,6 @@
 default:
   @just --list
 
-build-vm:
-  nixos-rebuild build-vm --flake .#argon
-  ./result/bin/run-argon-vm
-
 # Update secrets, stage .nix files
 rebuild-pre:
   nix flake update my-secrets
@@ -37,3 +33,10 @@ update:
 dev:
   @just rebuild-pre
   direnv reload
+
+build-vm host="helium":
+  nixos-rebuild build-vm --flake .#{{host}}
+  @just run-vm {{host}}
+
+run-vm host="helium":
+  ./result/bin/run-{{host}}-vm
