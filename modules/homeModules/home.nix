@@ -48,6 +48,7 @@
         alacritty
         baseUser
         firefox
+        ssh
         zed
       ];
 

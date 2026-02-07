@@ -15,6 +15,7 @@
       koreanIME
       plymouth
       qemu
+      sops
       uzbekl10n
     ];
 

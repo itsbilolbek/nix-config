@@ -17,13 +17,12 @@
       config =
         let
           username = config.preferences.user.name;
-          userPassword = "mocha-password";
         in
         {
           users.users.${username} = {
             isNormalUser = true;
             description = "${username}'s account";
-            hashedPasswordFile = config.sops.secrets.${userPassword}.path;
+            initialPassword = lib.mkDefault "12345";
             shell = pkgs.fish;
             extraGroups = [
               "networkmanager"
@@ -35,9 +34,6 @@
           };
 
           programs.fish.enable = true;
-
-          # Required for password to be set via sops during system activation
-          users.mutableUsers = false;
         };
     };
 }

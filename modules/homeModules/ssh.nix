@@ -1,6 +1,6 @@
 { inputs, self, ... }:
 {
-  flake.homeModules.cli =
+  flake.homeModules.ssh =
     { config, ... }:
     let
       githubSshKeyName = "github-ssh";
