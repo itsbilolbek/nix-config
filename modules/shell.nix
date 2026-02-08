@@ -49,6 +49,7 @@
           nixd
           just
           sops
+          nix-inspect
         ];
       };
     };

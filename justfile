@@ -34,7 +34,13 @@ dev:
   @just rebuild-pre
   direnv reload
 
-default_hostname := "helium"
+default_hostname := "xenon"
+
+repl host=default_hostname:
+  nixos-rebuild repl --flake .#{{host}}
+
+inspect:
+  nix-inspect --expr 'builtins.getFlake "/home/mocha/nix-config"'
 
 build-vm host=default_hostname:
   rm -rf result
