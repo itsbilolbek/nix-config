@@ -29,6 +29,7 @@
         my-pkgs.bat
         my-pkgs.btop
         my-pkgs.nh
+        my-pkgs.zellij
       ];
 
       boot.initrd.kernelModules = [ "amdgpu" ];
