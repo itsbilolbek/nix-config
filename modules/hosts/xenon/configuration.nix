@@ -28,6 +28,7 @@
       environment.systemPackages = [
         my-pkgs.bat
         my-pkgs.btop
+        my-pkgs.helix
         my-pkgs.nh
         my-pkgs.zellij
       ];
