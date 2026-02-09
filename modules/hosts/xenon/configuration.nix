@@ -27,6 +27,7 @@
 
       environment.systemPackages = [
         my-pkgs.bat
+        my-pkgs.btop
         my-pkgs.nh
       ];
 
