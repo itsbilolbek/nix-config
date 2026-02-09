@@ -17,6 +17,10 @@
         stateVersion = "25.11";
         inherit username;
         homeDirectory = "/home/${username}";
+        sessionVariables = {
+          EDITOR = "hx";
+          VISUAL = "hx";
+        };
       };
 
       home.packages = with pkgs; [
