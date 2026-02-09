@@ -50,6 +50,7 @@
               graph = "log --oneline --graph --decorate --all";
               unstage = "reset HEAD --";
               undo = "reset --soft HEAD~1";
+              restore-all = "!git reset --hard HEAD && git clean -fd";
             };
           };
 
