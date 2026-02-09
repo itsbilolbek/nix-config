@@ -4,16 +4,23 @@
     {
       services.xserver.videoDrivers = [ "amdgpu" ];
 
-      hardware.graphics.enable = true;
-
       environment.systemPackages = with pkgs; [
-        mangohud
+        mumble
       ];
+
+      hardware.graphics.enable = true;
 
       programs.gamemode.enable = true;
       programs.steam = {
         enable = true;
         gamescopeSession.enable = true;
+        protontricks.enable = true;
+        remotePlay.openFirewall = true;
+        dedicatedServer.openFirewall = true;
+        localNetworkGameTransfers.openFirewall = true;
+        extraPackages = with pkgs; [
+          mangohud
+        ];
       };
     };
 }
