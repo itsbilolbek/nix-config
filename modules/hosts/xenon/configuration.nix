@@ -3,13 +3,13 @@
   flake.nixosConfigurations.xenon = inputs.nixpkgs.lib.nixosSystem {
     specialArgs = {
       inherit inputs self;
-      packages = self.packages.x86_64-linux;
+      my-pkgs = self.packages.x86_64-linux;
     };
     modules = [ self.nixosModules.hostXenon ];
   };
 
   flake.nixosModules.hostXenon =
-    { packages, ... }:
+    { my-pkgs, ... }:
     {
 
       imports = with self.nixosModules; [
@@ -26,7 +26,8 @@
       ];
 
       environment.systemPackages = [
-        packages.nh
+        my-pkgs.bat
+        my-pkgs.nh
       ];
 
       boot.initrd.kernelModules = [ "amdgpu" ];
