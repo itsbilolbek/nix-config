@@ -14,6 +14,7 @@
         useGlobalPkgs = true;
         useUserPackages = true;
         backupFileExtension = "backup";
+        overwriteBackup = true;
         extraSpecialArgs = { inherit username; };
         users.${username}.imports = [ self.homeModules.defaultUser ];
       };

@@ -45,9 +45,9 @@
     { pkgs, ... }:
     {
       imports = with self.homeModules; [
-        alacritty
         baseUser
         firefox
+        kitty
         ssh
         zed
       ];
