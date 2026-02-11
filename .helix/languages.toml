@@ -1,0 +1,4 @@
+[[language]]
+name = "nix"
+formatter = { command = "treefmt", args = ["--stdin", "$FILE"] }
+auto-format = true
