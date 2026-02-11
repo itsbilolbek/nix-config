@@ -39,13 +39,6 @@
             rebase.autoStash = true;
 
             alias = {
-              aa = "add -A";
-              br = "branch";
-              ca = "commit -am";
-              ci = "commit";
-              cm = "commit -m";
-              co = "checkout";
-              st = "status -s";
               oops = "commit --amend --no-edit";
               graph = "log --oneline --graph --decorate --all";
               unstage = "reset HEAD --";

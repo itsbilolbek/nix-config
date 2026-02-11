@@ -20,15 +20,23 @@
 
         shellAliases = {
           cat = "bat";
+          grep = "grep --color=auto";
           ll = "eza -Alh --no-quotes --git --icons=auto --group-directories-first";
           ls = "eza";
           tree = "eza --tree";
         };
 
         shellAbbrs = {
-          grep = "grep --color=auto";
-          zj = "zellij";
           tempd = "cd (mktemp -d)";
+
+          # git abbreviations
+          ga = "git add -A";
+          gb = "git branch";
+          gc = "git commit -m";
+          gco = "git checkout";
+          gca = "git commit -am";
+          gs = "git status -s";
+          gg = "git graph";
         };
 
         functions = {
