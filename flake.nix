@@ -21,5 +21,8 @@
 
     treefmt-nix.url = "github:numtide/treefmt-nix";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    wrappers.url = "github:lassulus/wrappers";
+    wrappers.inputs.nixpkgs.follows = "nixpkgs";
   };
 }

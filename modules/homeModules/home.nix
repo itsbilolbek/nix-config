@@ -2,7 +2,6 @@
 {
   flake.homeModules.baseUser =
     {
-      config,
       pkgs,
       username,
       ...
@@ -19,7 +18,8 @@
         inherit username;
         homeDirectory = "/home/${username}";
         sessionVariables = {
-          NH_FLAKE = "${config.home.homeDirectory}/nix-config";
+          EDITOR = "hx";
+          VISUAL = "hx";
         };
       };
 
@@ -33,7 +33,6 @@
         jq
         moreutils # sponge util
         ncdu
-        nh
         ouch # archiving
         ripgrep
         sd
