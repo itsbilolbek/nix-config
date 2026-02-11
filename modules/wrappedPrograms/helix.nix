@@ -8,6 +8,9 @@
           inherit pkgs;
           settings = {
             theme = "catppuccin_mocha";
+            editor.whitespace = {
+              render = "all";
+            };
           };
         }).wrapper;
     };
