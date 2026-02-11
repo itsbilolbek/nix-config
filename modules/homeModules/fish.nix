@@ -15,6 +15,7 @@
 
         interactiveShellInit = ''
           set fish_greeting # Disable greeting
+          fish_config prompt choose astronaut
         '';
 
         shellAliases = {
