@@ -9,7 +9,7 @@
   };
 
   flake.nixosModules.hostXenon =
-    { my-pkgs, ... }:
+    { my-pkgs, pkgs, ... }:
     {
 
       imports = with self.nixosModules; [
@@ -28,7 +28,7 @@
       environment.systemPackages = [
         my-pkgs.bat
         my-pkgs.btop
-        my-pkgs.helix
+        pkgs.helix
         my-pkgs.nh
         my-pkgs.zellij
       ];
