@@ -30,7 +30,6 @@
         my-pkgs.btop
         pkgs.helix
         my-pkgs.nh
-        my-pkgs.zellij
       ];
 
       boot.initrd.kernelModules = [ "amdgpu" ];
