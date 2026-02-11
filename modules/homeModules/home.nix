@@ -61,32 +61,18 @@
       };
 
       home.packages = with pkgs; [
-        # Development
-        sqlite
-
-        # LSP
-        llvmPackages.clang-unwrapped
-        nixd
-        pyright
-        ruff
-
         # GUI
-        anki
+        # anki
         celluloid
         kdePackages.kdeconnect-kde
         libreoffice-fresh
         # telegram-desktop
-        obsidian
-        poedit
+        # poedit
         qbittorrent
         xreader
-        zoom-us
-
-        # Terminal and text utils
-        tealdeer
+        # zoom-us
 
         fontconfig
-        hunspell
       ];
     };
 }
