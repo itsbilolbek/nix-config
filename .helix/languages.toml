@@ -1,4 +1,19 @@
 [[language]]
 name = "nix"
-formatter = { command = "treefmt", args = ["--stdin", "$FILE"] }
+formatter = { command = "treefmt", args = ["--stdin", "%{buffer_name}"] }
+auto-format = true
+
+[[language]]
+name = "yaml"
+formatter = { command = "treefmt", args = ["--stdin", "%{buffer_name}"] }
+auto-format = true
+
+[[language]]
+name = "toml"
+formatter = { command = "treefmt", args = ["--stdin", "%{buffer_name}"] }
+auto-format = true
+
+[[language]]
+name = "markdown"
+formatter = { command = "treefmt", args = ["--stdin", "%{buffer_name}"] }
 auto-format = true
