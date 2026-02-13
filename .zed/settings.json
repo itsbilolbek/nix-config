@@ -3,8 +3,8 @@
 
   "formatter": {
     "external": {
-      "command": "nix",
-      "arguments": ["fmt", "--", "--stdin", "{buffer_path}"]
+      "command": "treefmt",
+      "arguments": ["--stdin", "{buffer_path}"]
     }
   },
 
