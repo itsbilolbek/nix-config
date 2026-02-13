@@ -9,8 +9,9 @@
         defaultEditor = true;
         settings = {
           theme = "catppuccin_mocha";
-          editor.whitespace = {
-            render = "all";
+          editor = {
+            indent-guides.render = true;
+            indent-guides.skip-levels = 1;
           };
         };
       };
