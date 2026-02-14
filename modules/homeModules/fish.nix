@@ -1,6 +1,6 @@
 {
   flake.homeModules.fish =
-    { pkgs, ... }:
+    { config, pkgs, ... }:
     {
       home.packages = with pkgs; [
         fish
@@ -20,10 +20,15 @@
 
         shellAliases = {
           cat = "bat";
+          conf = "cd ${config.home.homeDirectory}/nix-config && hx .";
           grep = "grep --color=auto";
           ll = "eza -Alh --no-quotes --git --icons=auto --group-directories-first";
           ls = "eza";
           tree = "eza --tree";
+          cp = "cp -ivr";
+          rm = "rm -Ivr";
+          mv = "mv -iv";
+          mkdir = "mkdir -pv";
         };
 
         shellAbbrs = {
@@ -37,10 +42,12 @@
           gca = "git commit -am";
           gs = "git status -s";
           gg = "git graph";
+          ginit = "git init && git add -A && git commit -m \"Initial commit\"";
         };
 
         functions = {
-          template.body = "nix flake init -t github:itsbilolbek/flake-templates#\"$argv\"";
+          mkcd.body = "mkdir -pv $argv; and cd $argv";
+          template.body = "nix flake init -t github:itsbilolbek/flake-templates#\"$argv\" && direnv allow";
           cb.body = ''
             if isatty stdin
               # Paste logic: Try wayland first, then X11
