@@ -20,12 +20,15 @@
       };
 
       home.packages = with pkgs; [
+        bat
+        btop
         coreutils
         curl
         dust
         eza
         fastfetch
         fd
+        fzf
         jq
         moreutils # sponge util
         ncdu
