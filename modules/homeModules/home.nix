@@ -62,14 +62,10 @@
 
       home.packages = with pkgs; [
         # GUI
-        # anki
         celluloid
-        kdePackages.kdeconnect-kde
-        libreoffice-fresh
+        # libreoffice-fresh
         # telegram-desktop
-        # poedit
         qbittorrent
-        xreader
         # zoom-us
 
         fontconfig
