@@ -48,6 +48,18 @@
         functions = {
           mkcd.body = "mkdir -pv $argv; and cd $argv";
           template.body = "nix flake init -t github:itsbilolbek/flake-templates#\"$argv\" && direnv allow";
+          ns.body = ''
+            if test (count $argv) -eq 0
+              echo "Usage: ns <pkg1> <pkg2> ..."
+            end
+
+            set -l pkgs
+            for pkg in $argv
+              set -a pkgs "nixpkgs#$pkg"
+            end
+
+            nix shell $pkgs
+          '';
           cb.body = ''
             if isatty stdin
               # Paste logic: Try wayland first, then X11
