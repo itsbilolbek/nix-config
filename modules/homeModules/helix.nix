@@ -12,6 +12,7 @@
           editor = {
             indent-guides.render = true;
             indent-guides.skip-levels = 1;
+            file-picker.hidden = false;
           };
         };
       };
