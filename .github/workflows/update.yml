@@ -1,7 +1,7 @@
 name: "Update Flake Inputs"
 on:
   schedule:
-    - cron: "0 0 * * 0" # Every Sunday at 00:00
+    - cron: "0 0 1 * *" # Every month on day-of-month 1 at 00:00
   workflow_dispatch: # Allows you to run it manually from the GitHub UI
 jobs:
   update:
