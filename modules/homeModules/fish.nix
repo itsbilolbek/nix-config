@@ -33,33 +33,43 @@
 
         shellAbbrs = {
           tempd = "cd (mktemp -d)";
+          cdp = {
+            setCursor = "%";
+            expansion = "cd ~/Projects/%";
+          };
+
+          # nix abbreviations
+          ns = {
+            setCursor = "%";
+            expansion = "nix shell nixpkgs#%";
+          };
+          nr = {
+            setCursor = "%";
+            expansion = "nix run nixpkgs#%";
+          };
 
           # git abbreviations
+          g = "git";
+          gcl = "git clone";
           ga = "git add -A";
           gb = "git branch";
-          gc = "git commit -m";
           gco = "git checkout";
-          gca = "git commit -am";
           gs = "git status -s";
           gg = "git graph";
           ginit = "git init && git add -A && git commit -m \"Initial commit\"";
+          gc = {
+            setCursor = "%";
+            expansion = "git commit -m \"%\"";
+          };
+          gca = {
+            setCursor = "%";
+            expansion = "git commit -am \"%\"";
+          };
         };
 
         functions = {
           mkcd.body = "mkdir -pv $argv; and cd $argv";
           template.body = "nix flake init -t github:itsbilolbek/flake-templates#\"$argv\" && direnv allow";
-          ns.body = ''
-            if test (count $argv) -eq 0
-              echo "Usage: ns <pkg1> <pkg2> ..."
-            end
-
-            set -l pkgs
-            for pkg in $argv
-              set -a pkgs "nixpkgs#$pkg"
-            end
-
-            nix shell $pkgs
-          '';
           cb.body = ''
             if isatty stdin
               # Paste logic: Try wayland first, then X11
