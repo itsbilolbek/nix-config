@@ -33,7 +33,7 @@
           minimap.show = "never";
           show_whitespaces = "boundary";
           tab_size = 2;
-          theme = "Catppuccin Mocha";
+          theme = "Solarized Light";
           title_bar.show_sign_in = false;
           title_bar.show_branch_icon = true;
           buffer_font_family = "JetBrainsMono Nerd Font Mono";

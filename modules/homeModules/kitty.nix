@@ -17,44 +17,57 @@
         enable = true;
         enableGitIntegration = true;
 
-        font = {
-          name = "JetBrainsMono Nerd Font Mono";
-          size = 13;
+        actionAliases = {
+          "launch_tab" = "launch --cwd=current --type=tab";
+          "launch_window" = "launch --cwd=current --type=window";
         };
 
         settings = {
-          # Catppuccin color theme
-          foreground = "#cdd6f4";
-          background = "#1e1e2e";
-          selection_foreground = "#1e1e2e";
-          selection_background = "#f5e0dc";
+          font_size = 15;
+          font_family = "JetBrainsMonoNFM-SemiBold";
+          bold_font = "JetBrainsMonoNFM-Bold";
+          italic_font = "JetBrainsMonoNFM-SemiBoldItalic";
+          bold_italic_font = "JetBrainsMonoNFM-BoldItalic";
+
+          # Solarized Light color theme
+          foreground = "#657b83";
+          background = "#fdf6e3";
+          selection_foreground = "#586e75";
+          selection_background = "#eee8d5";
+
           # Cursor
-          cursor = "#f5e0dc";
-          cursor_text_color = "#1e1e2e";
-          # Black
-          color0 = "#45475a";
-          color8 = "#585b70";
+          cursor = "#586e75";
+          cursor_text_color = "#fdf6e3";
+
+          # URL underline color
+          url_color = "#268bd2";
+
+          # The 16 terminal colors
+
+          # Black (Base02 / Base03)
+          color0 = "#073642";
+          color8 = "#002b36";
           # Red
-          color1 = "#f38ba8";
-          color9 = "#f38ba8";
+          color1 = "#dc322f";
+          color9 = "#cb4b16";
           # Green
-          color2 = "#a6e3a1";
-          color10 = "#a6e3a1";
+          color2 = "#859900";
+          color10 = "#586e75";
           # Yellow
-          color3 = "#f9e2af";
-          color11 = "#f9e2af";
+          color3 = "#b58900";
+          color11 = "#657b83";
           # Blue
-          color4 = "#89b4fa";
-          color12 = "#89b4fa";
+          color4 = "#268bd2";
+          color12 = "#839496";
           # Magenta
-          color5 = "#f5c2e7";
-          color13 = "#f5c2e7";
+          color5 = "#d33682";
+          color13 = "#6c71c4";
           # Cyan
-          color6 = "#94e2d5";
-          color14 = "#94e2d5";
-          # White
-          color7 = "#bac2de";
-          color15 = "#a6adc8";
+          color6 = "#2aa198";
+          color14 = "#93a1a1";
+          # White (Base2 / Base3)
+          color7 = "#eee8d5";
+          color15 = "#fdf6e3";
         };
       };
     };

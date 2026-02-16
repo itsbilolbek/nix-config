@@ -8,7 +8,7 @@
         enable = true;
         defaultEditor = true;
         settings = {
-          theme = "catppuccin_mocha";
+          theme = "solarized_light";
           editor = {
             indent-guides.render = true;
             indent-guides.skip-levels = 1;
