@@ -17,6 +17,9 @@
         stateVersion = "25.11";
         inherit username;
         homeDirectory = "/home/${username}";
+        sessionVariables = {
+          "MANPAGER" = "bat -l man -p";
+        };
       };
 
       home.packages = with pkgs; [
