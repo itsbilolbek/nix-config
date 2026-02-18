@@ -8,7 +8,7 @@
         enable = true;
         defaultEditor = true;
         settings = {
-          theme = "solarized_light";
+          theme = "gruvbox_light_hard";
           editor = {
             indent-guides.render = true;
             indent-guides.skip-levels = 1;
