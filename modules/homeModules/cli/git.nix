@@ -1,16 +1,10 @@
 {
   flake.homeModules.cli =
-    { config, pkgs, ... }:
+    { config, ... }:
     let
       inherit (config.home) homeDirectory;
     in
     {
-      home.packages = with pkgs; [
-        gh
-        git
-        delta
-      ];
-
       programs = {
         git = {
           enable = true;

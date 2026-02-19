@@ -1,9 +1,7 @@
 {
   flake.homeModules.firefox =
-    { pkgs, username, ... }:
+    { username, ... }:
     {
-      home.packages = [ pkgs.firefox ];
-
       programs.firefox.enable = true;
       programs.firefox.profiles.${username}.settings = {
         "layout.css.always_underline_links" = true;

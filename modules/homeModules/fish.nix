@@ -3,9 +3,6 @@
     { config, pkgs, ... }:
     {
       home.packages = with pkgs; [
-        fish
-        starship
-
         # copy and paste in terminal
         wl-clipboard
         xclip

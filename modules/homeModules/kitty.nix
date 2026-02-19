@@ -3,7 +3,6 @@
     { pkgs, ... }:
     {
       home.packages = with pkgs; [
-        kitty
         nerd-fonts.jetbrains-mono
         nerd-fonts.hack
         noto-fonts-color-emoji
