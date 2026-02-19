@@ -4,18 +4,22 @@
     {
       home.packages = with pkgs; [
         fish
+        starship
 
         # copy and paste in terminal
         wl-clipboard
         xclip
       ];
 
+      programs.starship = {
+        enable = true;
+      };
+
       programs.fish = {
         enable = true;
 
         interactiveShellInit = ''
           set fish_greeting # Disable greeting
-          fish_config prompt choose astronaut
         '';
 
         shellAliases = {

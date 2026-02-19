@@ -38,6 +38,7 @@
         ouch # archiving
         ripgrep
         sd
+        tealdeer
         wget
       ];
     };
