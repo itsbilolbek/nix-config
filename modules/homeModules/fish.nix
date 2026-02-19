@@ -11,8 +11,18 @@
         xclip
       ];
 
+      home.sessionVariables = {
+        "_ZO_ECHO" = "1"; # print directory before jumping to it
+      };
+
       programs.starship = {
         enable = true;
+      };
+
+      programs.zoxide = {
+        enable = true;
+        enableFishIntegration = true;
+        options = [ "--cmd cd" ];
       };
 
       programs.fish = {
