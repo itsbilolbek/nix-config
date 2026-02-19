@@ -69,6 +69,15 @@
             };
           };
         };
+
+        lazygit = {
+          enable = true;
+          settings = {
+            git.pagers = [
+              { pager = "delta --light --paging=never --line-numbers"; }
+            ];
+          };
+        };
       };
     };
 }
