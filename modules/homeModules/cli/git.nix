@@ -54,10 +54,8 @@
 
           options = {
             conflictStyle = "zdiff3";
-            dark = true;
             line-numbers = true;
             navigate = true;
-            side-by-side = true;
           };
         };
 
