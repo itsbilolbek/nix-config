@@ -1,6 +1,6 @@
 {
   flake.nixosModules.core = {
-    time.timeZone = "Asia/Tashkent";
+    time.timeZone = "Asia/Seoul";
 
     services.xserver.xkb.options = "ctrl:nocaps";
 
