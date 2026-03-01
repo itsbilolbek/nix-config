@@ -52,7 +52,7 @@
         firefox
         helix
         kitty
-        ssh
+        # ssh
         zed
       ];
 
@@ -67,7 +67,6 @@
 
       home.packages = with pkgs; [
         # GUI
-        celluloid
         # libreoffice-fresh
         # telegram-desktop
         qbittorrent
