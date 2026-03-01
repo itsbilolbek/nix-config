@@ -35,6 +35,7 @@
           grep = "grep --color=auto";
           ll = "eza -Alh --no-quotes --git --icons=auto --group-directories-first";
           ls = "eza";
+          less = "bat -p";
           tree = "eza --tree";
           cp = "cp -ivr";
           rm = "rm -Ivr";
@@ -50,6 +51,7 @@
           };
 
           # nix abbreviations
+          nfc = "nix flake check";
           ns = {
             setCursor = "%";
             expansion = "nix shell nixpkgs#%";

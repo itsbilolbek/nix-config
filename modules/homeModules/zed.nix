@@ -27,7 +27,7 @@
           buffer_line_height = "standard";
           collaboration_panel.button = false;
           cursor_blink = false;
-          icon_theme = "Colored Zed Icons Theme Dark";
+          icon_theme = "Colored Zed Icons Theme Light";
           inlay_hints.enable = true;
           inlay_hints.show_background = true;
           minimap.show = "never";
