@@ -20,7 +20,7 @@
       koreanIME
       plymouth
       qemu
-      # sops
+      sops
       uzbekl10n
     ];
 

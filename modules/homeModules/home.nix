@@ -52,7 +52,7 @@
         firefox
         helix
         kitty
-        # ssh
+        ssh
         zed
       ];
 
