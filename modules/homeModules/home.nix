@@ -36,6 +36,7 @@
         jq
         moreutils # sponge util
         ncdu
+        nix-output-monitor
         ouch # archiving
         ripgrep
         sd
@@ -68,10 +69,13 @@
       home.packages = with pkgs; [
         # GUI
         celluloid
+        dropbox
         # libreoffice-fresh
+        obsidian
+        onlyoffice-desktopeditors
         # telegram-desktop
         qbittorrent
-        # zoom-us
+        zoom-us
 
         fontconfig
       ];
