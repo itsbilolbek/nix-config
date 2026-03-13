@@ -33,6 +33,10 @@
             addKeysToAgent = "yes";
           };
         };
+
+        extraConfig = ''
+          Include ~/.ssh/config.local
+        '';
       };
 
       services.ssh-agent.enable = true;

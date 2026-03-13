@@ -67,6 +67,9 @@
       };
 
       home.packages = with pkgs; [
+        # CLI
+        libqalculate
+
         # GUI
         celluloid
         dropbox
