@@ -38,7 +38,6 @@
           less = "bat -p";
           tree = "eza --tree";
           cp = "cp -ivr";
-          rm = "rm -Ivr";
           mv = "mv -iv";
           mkdir = "mkdir -pv";
         };

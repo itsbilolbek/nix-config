@@ -71,13 +71,16 @@
         libqalculate
 
         # GUI
+        anki
         celluloid
         dropbox
         # libreoffice-fresh
         obsidian
         onlyoffice-desktopeditors
-        # telegram-desktop
+        poedit
+        telegram-desktop
         qbittorrent
+        vlc
         zoom-us
 
         fontconfig
