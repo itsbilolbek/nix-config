@@ -19,7 +19,6 @@
       home-manager
       koreanIME
       plymouth
-      qemu
       sops
       uzbekl10n
     ];

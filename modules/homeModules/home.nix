@@ -78,7 +78,7 @@
         obsidian
         onlyoffice-desktopeditors
         poedit
-        telegram-desktop
+        # telegram-desktop
         qbittorrent
         vlc
         zoom-us
