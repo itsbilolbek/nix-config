@@ -11,6 +11,5 @@
     };
 
     i18n.extraLocales = [ "uz_UZ.UTF-8/UTF-8" ];
-    i18n.supportedLocales = [ "uz_UZ.UTF-8/UTF-8" ];
   };
 }

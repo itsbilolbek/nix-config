@@ -3,7 +3,6 @@
     { pkgs, ... }:
     {
       i18n.extraLocales = [ "ko_KR.UTF-8/UTF-8" ];
-      i18n.supportedLocales = [ "ko_KR.UTF-8/UTF-8" ];
 
       fonts.fontconfig.defaultFonts = {
         serif = [
