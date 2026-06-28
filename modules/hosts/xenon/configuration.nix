@@ -15,10 +15,10 @@
     { ... }:
     {
       imports = with self.nixosModules; [
-        cinnamon
         core
         fhs
         # gaming
+        gnome
         home-manager
         koreanIME
         plymouth
