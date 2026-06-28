@@ -1,5 +1,5 @@
 {
-  flake.nixosModules.uzbekl10n = {
+  flake.nixosModules.uzbekl10n = _: {
     services.xserver.xkb = {
       layout = "uzx,us";
       options = "ctrl:nocaps";
@@ -9,7 +9,5 @@
         symbolsFile = ./uz_us.xkb;
       };
     };
-
-    i18n.extraLocales = [ "uz_UZ.UTF-8/UTF-8" ];
   };
 }
