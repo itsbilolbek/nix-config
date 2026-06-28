@@ -1,15 +1,24 @@
 { self, ... }:
 {
-  flake.nixosModules.gnome = { pkgs, ... }: {
-    imports = [ self.nixosModules.desktop ];
+  flake.nixosModules.gnome = { pkgs, lib, ... }: {
+    specialisation.gnome.configuration = {
+      imports = [ self.nixosModules.desktop ];
 
-    services.displayManager.gdm.enable = true;
-    services.desktopManager.gnome.enable = true;
+      # Turn off Cinnamon/LightDM
+      services.xserver.desktopManager.cinnamon.enable = lib.mkForce false;
+      services.xserver.displayManager.lightdm.enable = lib.mkForce false;
 
-    programs.dconf.enable = true;
+      services.displayManager.gdm.enable = true;
+      services.desktopManager.gnome.enable = true;
 
-    environment.systemPackages = with pkgs; [
-      adwaita-icon-theme
-    ];
+      programs.dconf.enable = true;
+
+      # Force uzbek localization
+      i18n.defaultLocale = lib.mkForce "uz_UZ.UTF-8";
+
+      environment.systemPackages = with pkgs; [
+        adwaita-icon-theme
+      ];
+    };
   };
 }

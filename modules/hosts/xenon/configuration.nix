@@ -15,6 +15,7 @@
     { ... }:
     {
       imports = with self.nixosModules; [
+        cinnamon
         core
         fhs
         # gaming

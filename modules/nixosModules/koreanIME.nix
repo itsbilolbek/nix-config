@@ -2,6 +2,8 @@
   flake.nixosModules.koreanIME =
     { pkgs, ... }:
     {
+      i18n.extraLocales = [ "ko_KR.UTF-8/UTF-8" ];
+
       fonts.fontconfig.defaultFonts = {
         serif = [
           "Noto Serif CJK KR"
