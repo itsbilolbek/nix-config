@@ -41,6 +41,7 @@
         ripgrep
         sd
         tealdeer
+        ungoogled-chromium
         wget
       ];
     };
@@ -74,7 +75,7 @@
         anki
         celluloid
         dropbox
-        # libreoffice-fresh
+        libreoffice-fresh
         obsidian
         onlyoffice-desktopeditors
         poedit

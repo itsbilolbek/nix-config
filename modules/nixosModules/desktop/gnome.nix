@@ -18,6 +18,7 @@
 
       environment.systemPackages = with pkgs; [
         adwaita-icon-theme
+        gnomeExtensions.dash-to-dock
       ];
     };
   };

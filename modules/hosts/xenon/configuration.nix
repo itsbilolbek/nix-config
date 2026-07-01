@@ -12,7 +12,7 @@
   };
 
   flake.nixosModules.hostXenon =
-    { ... }:
+    { pkgs, ... }:
     {
       imports = with self.nixosModules; [
         cinnamon
@@ -34,5 +34,10 @@
       system.stateVersion = "25.11";
 
       networking.hostName = "xenon";
+
+      fonts = {
+        packages = [ pkgs.pretendard ];
+        fontDir.enable = true;
+      };
     };
 }
